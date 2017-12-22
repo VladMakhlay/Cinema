@@ -1,0 +1,24 @@
+@font-face {
+    font-family: cuprum;
+    src: url('./fonts/cuprum/cuprum-v8-latin_cyrillic-regular.eot') format('eot'),
+         url('./fonts/cuprum/cuprum-v8-latin_cyrillic-regular.woff') format('woff'),
+         url('./fonts/cuprum/cuprum-v8-latin_cyrillic-regular.woff2') format('woff2'),
+         url('./fonts/cuprum/cuprum-v8-latin_cyrillic-regular.ttf') format('ttf');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+body {
+    text-align: center;
+    font-family: cuprum;
+    background: bisque;
+}
+.red {
+    color: lightcoral;
+    font-size: 30px;
+}
+img {
+    width: 100px;
+    height: auto;
+}
