@@ -1,7 +1,11 @@
 import printMe from './print';
+import './scss/index.scss';
+
 function print() {
   let el = document.createElement('div');
   let btn = document.createElement('button');
+
+  el.classList.add('hello');
 
   el.innerHTML = "You have some results with webpack ";
   btn.innerText = 'Click me and check the console';
@@ -9,7 +13,7 @@ function print() {
 
   el.appendChild(btn);
 
-   return el;
+  return el;
 }
 
 document.body.appendChild(print());
