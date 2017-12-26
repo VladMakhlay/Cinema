@@ -10,12 +10,12 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: '../public',
+    contentBase: './public',
     hot: true
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, '../public')
+    path: path.resolve(__dirname, './public')
   },
   module: {
     rules: [{
@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('app.css'),
-    new CleanWebpackPlugin(['../public']),
+    new CleanWebpackPlugin(['./public']),
     new HtmlWebpackPlugin({
       title: 'Cinema'
     }),
