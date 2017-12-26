@@ -10,7 +10,7 @@ module.exports = {
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: './public',
+    contentBase: '../public',
     hot: true
   },
   output: {
@@ -43,7 +43,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('../public/app.css'),
+    new ExtractTextPlugin('app.css'),
     new CleanWebpackPlugin(['../public']),
     new HtmlWebpackPlugin({
       title: 'Cinema'
