@@ -4,15 +4,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
-module.exports = {
+const common = {
     entry: {
         app: './src/index.js',
     },
     devtool: 'inline-source-map',
-    devServer: {
-        contentBase: './public',
-        hot: true
-    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, './public')
@@ -41,7 +37,16 @@ module.exports = {
             ]
         },
         {
-            test: /\.js$/,
+            test: /\.(png|jpg|gif)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {}
+                }
+            ]
+        },
+        {
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: [
                 {
@@ -63,4 +68,24 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
     ],
+};
+
+const developmentConfig = {
+    devServer: {
+        contentBase: './public',
+        stats: 'errors-only',
+    }
+};
+
+module.exports = function(env) {
+    if(env === 'production') {
+        return common;
+    }
+    if(env === 'development') {
+        return Object.assign(
+            {},
+            common,
+            developmentConfig
+        );
+    }
 };
