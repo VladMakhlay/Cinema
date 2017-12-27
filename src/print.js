@@ -6,7 +6,7 @@ export default function printMe() {
     let b = new Image();
     b.src = shining;
     b.width = 200;
-    b.height = 300;
+    b.height = 200;
 
     document.body.appendChild(b);
 }

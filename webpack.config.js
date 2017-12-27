@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 
 const common = {
     entry: {
@@ -82,10 +83,9 @@ module.exports = function(env) {
         return common;
     }
     if(env === 'development') {
-        return Object.assign(
-            {},
+        return merge([
             common,
             developmentConfig
-        );
+        ]);
     }
 };
