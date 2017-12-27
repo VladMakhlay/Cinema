@@ -5,50 +5,62 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    app: './src/index.js',
-  },
-  devtool: "inline-source-map",
-  devServer: {
-    contentBase: './public',
-    hot: true
-  },
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, './public')
-  },
-  module: {
-    rules: [{
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: [
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      })
+    entry: {
+        app: './src/index.js',
     },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'file-loader'
-          }
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './public',
+        hot: true
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, './public')
+    },
+    module: {
+        rules: [{
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
+            })
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            use: [
+                {
+                    loader: 'file-loader'
+                }
+            ]
+        },
+        {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: [
+                {
+                    loader: 'babel-loader'
+                },
+                {
+                    loader: 'eslint-loader'
+                }
+            ]
+        }
         ]
-      }
-    ]
-  },
-  plugins: [
-    new ExtractTextPlugin('app.css'),
-    new CleanWebpackPlugin(['./public']),
-    new HtmlWebpackPlugin({
-      title: 'Cinema'
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+    },
+    plugins: [
+        new ExtractTextPlugin('app.css'),
+        new CleanWebpackPlugin(['./public']),
+        new HtmlWebpackPlugin({
+            title: 'Cinema'
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+    ],
 };
