@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
@@ -9,7 +10,6 @@ const common = {
     entry: {
         app: './src/index.js',
     },
-    devtool: 'inline-source-map',
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, './public')
@@ -71,16 +71,29 @@ const common = {
     ],
 };
 
+const productionConfig = {
+    devtool: 'source-map',
+    plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
+    ]
+};
+
 const developmentConfig = {
+    devtool: 'inline-source-map',
     devServer: {
         contentBase: './public',
         stats: 'errors-only',
     }
 };
 
-module.exports = function(env) {
+module.exports = env => {
     if(env === 'production') {
-        return common;
+        return merge([
+            common,
+            productionConfig
+        ]);
     }
     if(env === 'development') {
         return merge([
