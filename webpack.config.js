@@ -66,8 +66,7 @@ const common = {
         new HtmlWebpackPlugin({
             title: 'Cinema'
         }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+
     ],
 };
 
