@@ -44,6 +44,7 @@ const common = {
                     options: {
                         name: '[hash:10].[ext]',
                         outputPath: 'images/'
+                    }
                 },
                 {
                     loader: 'img-loader'
