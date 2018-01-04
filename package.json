@@ -27,7 +27,8 @@
     "fs": "0.0.1-security",
     "imagemin-webpack-plugin": "^1.5.2",
     "net": "^1.0.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react": "^16.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.1.2",
@@ -46,6 +47,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
+    "img-loader": "^2.0.0",
     "node-sass": "^4.7.2",
     "node-static": "^0.7.10",
     "sass-loader": "^6.0.6",
@@ -63,7 +65,9 @@
       "commonjs": true,
       "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended"
+    ],
     "parserOptions": {
       "ecmaFeatures": {
         "experimentalObjectRestSpread": true,
