@@ -37,15 +37,18 @@ const common = {
             ]
         },
         {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpg|gif|svg)$/,
             use: [
                 {
                     loader: 'file-loader',
                     options: {
                         name: '[hash:10].[ext]',
                         outputPath: 'images/'
-                    }
+                },
+                {
+                    loader: 'img-loader'
                 }
+
             ]
         },
         {
