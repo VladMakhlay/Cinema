@@ -25,6 +25,7 @@
     "babel-preset-env": "^1.6.1",
     "debug": "^3.1.0",
     "fs": "0.0.1-security",
+    "imagemin-webpack-plugin": "^1.5.2",
     "net": "^1.0.2",
     "path": "^0.12.7"
   },

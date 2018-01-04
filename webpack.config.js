@@ -2,16 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const merge = require('webpack-merge');
 
 const common = {
     entry: {
         app: './src/index.js',
     },
-    devtool: 'inline-source-map',
     output: {
-        filename: '[name].js',
+        filename: '[name].[hash:5].js',
         path: path.resolve(__dirname, './public')
     },
     module: {
@@ -42,7 +41,9 @@ const common = {
             use: [
                 {
                     loader: 'file-loader',
-                    options: {}
+                    options: {
+                        name: '[hash:10].[ext]',
+                        outputPath: 'images/'
                 },
                 {
                     loader: 'img-loader'
@@ -65,26 +66,38 @@ const common = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('app.css'),
+        new ExtractTextPlugin('[name].[hash:5].css'),
         new CleanWebpackPlugin(['./public']),
         new HtmlWebpackPlugin({
             title: 'Cinema'
         }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+
     ],
 };
 
+const productionConfig = {
+    devtool: 'source-map',
+    plugins: [
+        new UglifyJSPlugin({
+            sourceMap: true
+        }),
+    ]
+};
+
 const developmentConfig = {
+    devtool: 'inline-source-map',
     devServer: {
         contentBase: './public',
         stats: 'errors-only',
     }
 };
 
-module.exports = function(env) {
+module.exports = env => {
     if(env === 'production') {
-        return common;
+        return merge([
+            common,
+            productionConfig
+        ]);
     }
     if(env === 'development') {
         return merge([
