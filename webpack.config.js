@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 
 const common = {
@@ -11,7 +10,7 @@ const common = {
         app: './src/index.js',
     },
     output: {
-        filename: '[name].js',
+        filename: '[name].[hash:5].js',
         path: path.resolve(__dirname, './public')
     },
     module: {
@@ -42,7 +41,10 @@ const common = {
             use: [
                 {
                     loader: 'file-loader',
-                    options: {}
+                    options: {
+                        name: '[hash:10].[ext]',
+                        outputPath: 'images/'
+                    }
                 }
             ]
         },
@@ -61,7 +63,7 @@ const common = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin('app.css'),
+        new ExtractTextPlugin('[name].[hash:5].css'),
         new CleanWebpackPlugin(['./public']),
         new HtmlWebpackPlugin({
             title: 'Cinema'
