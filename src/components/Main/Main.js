@@ -1,5 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
 import '../../scss/style.scss';
+
 class Main extends Component {
     render() {
         return (

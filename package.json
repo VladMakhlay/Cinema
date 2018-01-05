@@ -87,6 +87,9 @@
     "rules": {
       "no-console": "off",
       "react/no-set-state": "off",
+      "react/jsx-filename-extension": "off",
+      "react/prefer-stateless-function": "off",
+      "react/jsx-indent": "off",
       "indent": [
         "error",
         4

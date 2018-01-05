@@ -23,6 +23,6 @@ import Main from './components/Main/Main';
 
 
 ReactDOM.render(
-    <Main/>,
-    document.getElementById('root')
+    <Main />,
+    document.getElementById('root'),
 );
