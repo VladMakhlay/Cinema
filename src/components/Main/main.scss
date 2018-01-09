@@ -1,5 +1,26 @@
-$back-color: #333333;
-
 .main {
-  background: $back-color;
+  background: url($img_hall) center fixed;
+  width: 100vw;
+  min-height: 100vh;
+
+  .main__header {
+    .container-fluid {
+      font-size: 17px;
+
+      .navbar-brand {
+
+        &--gold-36 {
+          font-size: 36px;
+          color: $gold;
+        }
+      }
+
+      &--cuprum {
+        font-family: "Cuprum", sans-serif;
+      }
+
+    }
+  }
 }
+
+

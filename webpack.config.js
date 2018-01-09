@@ -11,7 +11,7 @@ const common = {
     },
     output: {
         filename: '[name].[hash:5].js',
-        path: path.resolve(__dirname, './public')
+        path: path.resolve(__dirname, './public'),
     },
     module: {
         rules: [{
@@ -20,21 +20,13 @@ const common = {
                 fallback: 'style-loader',
                 use: [
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
                     },
                     {
-                        loader: 'sass-loader'
-                    }
-                ]
-            })
-        },
-        {
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
-            use: [
-                {
-                    loader: 'file-loader'
-                }
-            ]
+                        loader: 'sass-loader',
+                    },
+                ],
+            }),
         },
         {
             test: /\.(png|jpg|gif|svg)$/,
@@ -43,34 +35,49 @@ const common = {
                     loader: 'file-loader',
                     options: {
                         name: '[hash:10].[ext]',
-                        outputPath: 'images/'
-                    }
+                        outputPath: 'images/',
+                    },
                 },
                 {
-                    loader: 'img-loader'
-                }
+                    loader: 'img-loader',
+                },
 
-            ]
+            ],
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[hash:10].[ext]',
+                        outputPath: 'fonts/',
+                    },
+                },
+            ],
         },
         {
             test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: [
                 {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react'],
+                    },
                 },
                 {
-                    loader: 'eslint-loader'
-                }
-            ]
-        }
-        ]
+                    loader: 'eslint-loader',
+                },
+            ],
+        },
+        ],
     },
     plugins: [
         new ExtractTextPlugin('[name].[hash:5].css'),
         new CleanWebpackPlugin(['./public']),
         new HtmlWebpackPlugin({
-            title: 'Cinema'
+            title: 'Cinema',
         }),
 
     ],
@@ -80,9 +87,9 @@ const productionConfig = {
     devtool: 'source-map',
     plugins: [
         new UglifyJSPlugin({
-            sourceMap: true
+            sourceMap: true,
         }),
-    ]
+    ],
 };
 
 const developmentConfig = {
@@ -90,20 +97,20 @@ const developmentConfig = {
     devServer: {
         contentBase: './public',
         stats: 'errors-only',
-    }
+    },
 };
 
-module.exports = env => {
-    if(env === 'production') {
+module.exports = (env) => {
+    if (env === 'production') {
         return merge([
             common,
-            productionConfig
+            productionConfig,
         ]);
     }
-    if(env === 'development') {
+    if (env === 'development') {
         return merge([
             common,
-            developmentConfig
+            developmentConfig,
         ]);
     }
 };

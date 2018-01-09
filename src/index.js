@@ -1,9 +1,9 @@
 // import printMe from './print';
-// import  './scss/style.scss';
+// import './scss/style.scss';
 //
 // function print() {
-//     let el = document.createElement('div');
-//     let btn = document.createElement('button');
+//     const el = document.createElement('div');
+//     const btn = document.createElement('button');
 //
 //     el.classList.add('hello');
 //
@@ -18,11 +18,14 @@
 // document.body.appendChild(print());
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import Main from './components/Main/Main';
 
+const div = document.createElement('div');
+document.body.appendChild(div);
+div.id = 'root';
 
+const root = document.getElementById('root');
 ReactDOM.render(
     <Main />,
-    document.getElementById('root'),
+    root,
 );
