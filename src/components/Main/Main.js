@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import '../../scss/style.scss';
+import MoviesList from '../MoviesList/MoviesList';
 
 class Main extends Component {
     render() {
@@ -18,6 +19,9 @@ class Main extends Component {
                             </ul>
                         </div>
                     </nav>
+                </div>
+                <div className="main__content">
+                    <MoviesList />
                 </div>
             </div>
         );
