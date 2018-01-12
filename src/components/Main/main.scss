@@ -1,0 +1,28 @@
+.main {
+  background:$gray-dark url($img_hall) center fixed no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+
+  &__header {
+    width: 100%;
+    height: 55px;
+
+    .container-fluid {
+      font-size: 17px;
+
+      .navbar-brand {
+
+        &--gold-36 {
+          font-size: 36px;
+          color: $gold;
+        }
+      }
+
+      &--cuprum {
+        font-family: "Cuprum", sans-serif;
+      }
+    }
+  }
+}
+
+

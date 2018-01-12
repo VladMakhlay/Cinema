@@ -1,19 +1,11 @@
-import printMe from './print';
-import './scss/index.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-function print() {
-    let el = document.createElement('div');
-    let btn = document.createElement('button');
+import './scss/style.scss';
+import Main from './components/Main/Main';
 
-    el.classList.add('hello');
-
-    el.innerHTML = 'You have some results with webpack ';
-    btn.innerText = 'Click me and check the console';
-    btn.onclick = printMe;
-
-    el.appendChild(btn);
-
-    return el;
-}
-
-document.body.appendChild(print());
+const root = document.getElementById('root');
+ReactDOM.render(
+    <Main />,
+    root,
+);
