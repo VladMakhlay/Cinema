@@ -1,20 +1,40 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class MoviesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movies: ['seven', 2, 'hulk', 4, 5, 'go', 7, 'no retreat no surrender', 1, 4, 'die hard', 5, 'long kiss goodnight'],
+            movies: [],
         };
+        this.loadMovies = this.loadMovies.bind(this);
     }
+    componentDidMount() {
+        this.loadMovies();
+    }
+
+    loadMovies() {
+        axios.get('http://demo4787444.mockable.io/')
+            .then((response) => {
+                this.setState({ movies: response.data });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     render() {
+        console.log(this.state.movies);
+
         const { movies } = this.state;
-        const poster = movies.map((movie, index) => (
-            <div className="movie" key={index}>
-                <div className="movie__poster" />
+        const poster = movies.map(movie => (
+            <div className="movie" key={movie.id}>
+                <div className="movie__poster">
+                    <img src={movie.mg} alt={movie.title} />
+                </div>
                 <div className="movie__title">
-                    {movie}
+                    {movie.title}
                 </div>
             </div>
         ));
