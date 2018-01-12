@@ -14,7 +14,7 @@ class MoviesList extends Component {
     }
 
     loadMovies() {
-        axios.get('http://demo4787444.mockable.io/')
+        axios.get('http://demo4787444.mockable.io/posters')
             .then((response) => {
                 this.setState({ movies: response.data });
             })
