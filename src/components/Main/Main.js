@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
-import '../../scss/style.scss';
 import MoviesList from '../MoviesList/MoviesList';
 
 class Main extends Component {

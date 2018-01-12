@@ -15,6 +15,14 @@ const common = {
     },
     module: {
         rules: [{
+            test: /\.html$/,
+            use: [
+                {
+                    loader: 'html-loader',
+                },
+            ],
+        },
+        {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
@@ -78,6 +86,7 @@ const common = {
         new CleanWebpackPlugin(['./public']),
         new HtmlWebpackPlugin({
             title: 'Cinema',
+            template: './src/index.html',
         }),
 
     ],

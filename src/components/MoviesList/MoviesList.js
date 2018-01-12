@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
-import '../../scss/style.scss';
 
 class MoviesList extends Component {
     constructor(props) {

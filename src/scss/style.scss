@@ -1,7 +1,7 @@
 @import 'variables';
 @import 'reset';
 @import 'fonts';
-@import 'custom-bootstrap';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 @import '../components/Main/main';
 @import '../components/MoviesList/moviesList';
