@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -25,8 +24,6 @@ class MoviesList extends Component {
     }
 
     render() {
-        console.log(this.state.movies);
-
         const { movies } = this.state;
         const poster = movies.map(movie => (
             <div className="movie" key={movie.id}>
