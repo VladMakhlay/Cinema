@@ -11,9 +11,9 @@ class MoviesList extends Component {
     //     movies: [],
     // };
     // this.loadMovies = this.loadMovies.bind(this);
-    // this.fullDescription = this.fullDescription.bind(this);
     // }
     componentDidMount() {
+        // this.loadMovies();
         this.props.loadMovies();
     }
 
