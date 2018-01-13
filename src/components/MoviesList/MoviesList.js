@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import axios from 'axios';
 
 class MoviesList extends Component {
@@ -8,6 +9,7 @@ class MoviesList extends Component {
             movies: [],
         };
         this.loadMovies = this.loadMovies.bind(this);
+        // this.fullDescription = this.fullDescription.bind(this);
     }
     componentDidMount() {
         this.loadMovies();
@@ -26,7 +28,7 @@ class MoviesList extends Component {
     render() {
         const { movies } = this.state;
         const poster = movies.map(movie => (
-            <div className="movie" key={movie.id}>
+            <div className="movie" key={movie.id} >
                 <div className="movie__poster">
                     <img src={movie.mg} alt={movie.title} />
                 </div>
@@ -37,9 +39,10 @@ class MoviesList extends Component {
         ));
         return (
             <div className="moviesList">
-                <div className="moviesList__header">
-                    <span className="moviesList__title">Today Shown</span>
-                </div>
+                <header className="moviesList__header">
+                    <span className="moviesList__today">Today Shown</span>
+                    <span className="moviesList__date">{moment().format('D MMMM YYYY')}</span>
+                </header>
                 <div className="moviesList__body">
                     {poster}
                 </div>
