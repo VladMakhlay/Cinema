@@ -71,7 +71,7 @@ const common = {
                 {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react'],
+                        presets: ['react', 'es2015', 'stage-2'],
                     },
                 },
                 {

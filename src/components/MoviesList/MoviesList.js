@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import loadMovies from '../../actions/moviesList';
+// import axios from 'axios';
 
 class MoviesList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            movies: [],
-        };
-        this.loadMovies = this.loadMovies.bind(this);
-        // this.fullDescription = this.fullDescription.bind(this);
-    }
+    // constructor(props) {
+    //     super(props);
+    // this.state = {
+    //     movies: [],
+    // };
+    // this.loadMovies = this.loadMovies.bind(this);
+    // this.fullDescription = this.fullDescription.bind(this);
+    // }
     componentDidMount() {
-        this.loadMovies();
+        this.props.loadMovies();
     }
 
-    loadMovies() {
-        axios.get('http://demo4787444.mockable.io/posters')
-            .then((response) => {
-                this.setState({ movies: response.data });
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
+    // loadMovies() {
+    //     axios.get('http://demo4787444.mockable.io/posters')
+    //         .then((response) => {
+    //             this.setState({ movies: response.data });
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // }
 
     render() {
-        const { movies } = this.state;
+        const { movies } = this.props.moviesList;
         const poster = movies.map(movie => (
             <div className="movie" key={movie.id} >
                 <div className="movie__poster">
@@ -51,4 +53,7 @@ class MoviesList extends Component {
     }
 }
 
-export default MoviesList;
+export default connect(
+    state => ({ moviesList: state.moviesList }),
+    { loadMovies },
+)(MoviesList);
