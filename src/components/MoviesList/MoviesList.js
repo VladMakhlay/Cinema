@@ -30,22 +30,22 @@ class MoviesList extends Component {
     render() {
         const { movies } = this.props.moviesList;
         const poster = movies.map(movie => (
-            <div className="movie" key={movie.id} >
-                <div className="movie__poster">
+            <div className="b-movie" key={movie.id} >
+                <div className="b-movie__poster">
                     <img src={movie.mg} alt={movie.title} />
                 </div>
-                <div className="movie__title">
+                <div className="b-movie__title">
                     {movie.title}
                 </div>
             </div>
         ));
         return (
-            <div className="moviesList">
-                <header className="moviesList__header">
-                    <span className="moviesList__today">Today Shown</span>
-                    <span className="moviesList__date">{moment().format('D MMMM YYYY')}</span>
+            <div className="b-moviesList">
+                <header className="b-moviesList__header">
+                    <span className="b-moviesList__today">Today Shown</span>
+                    <span className="b-moviesList__date">{moment().format('D MMMM YYYY')}</span>
                 </header>
-                <div className="moviesList__body">
+                <div className="b-moviesList__body">
                     {poster}
                 </div>
             </div>

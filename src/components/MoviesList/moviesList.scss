@@ -1,5 +1,5 @@
-.moviesList {
-  width:60%;
+.b-moviesList {
+  width: 60%;
   margin: 100px auto 0 auto;
   border: solid 1px $white;
   font-family: "Cuprum", sans-serif;
@@ -25,12 +25,13 @@
   }
 
   &__body {
-    min-height:200px;
+    min-height: 200px;
     display: flex;
     flex-wrap: wrap;
   }
+}
 
-  .movie {
+  .b-movie {
     width: 18%;
     height: 250px;
     margin: 1%;
@@ -57,4 +58,3 @@
       opacity: .6;
     }
   }
-}
