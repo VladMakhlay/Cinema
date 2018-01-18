@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import loadMovies from '../../actions/moviesList';
 
 class MoviesList extends Component {
@@ -22,7 +24,13 @@ class MoviesList extends Component {
         const poster = movies.map(movie => (
             <div className="b-movie" key={movie.id} >
                 <div className="b-movie__poster">
-                    <img src={movie.mg} alt={movie.title} />
+                    <Link to={{
+                        pathname: '/movie',
+                        state: { movie },
+                    }}
+                    >
+                        <img src={movie.mg} alt={movie.title} />
+                    </Link>
                 </div>
                 <div className="b-movie__title">
                     {movie.title}

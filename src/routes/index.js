@@ -1,5 +1,6 @@
 import MoviesList from '../components/MoviesList/MoviesList';
 import ComingSoon from '../components/ComingSoon/ComingSoon';
+import MovieDesc from '../components/MovieDesc/MovieDesc';
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
         id: 2,
         path: '/soon',
         component: ComingSoon,
+    },
+    {
+        id: 3,
+        path: '/movie',
+        component: MovieDesc,
     },
 ];
 export default routes;
