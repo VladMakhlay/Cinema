@@ -12,6 +12,7 @@ const common = {
     output: {
         filename: '[name].[hash:5].js',
         path: path.resolve(__dirname, './public'),
+        publicPath: '/',
     },
     module: {
         rules: [{
@@ -106,6 +107,7 @@ const developmentConfig = {
     devServer: {
         contentBase: './public',
         stats: 'errors-only',
+        historyApiFallback: true,
     },
 };
 
