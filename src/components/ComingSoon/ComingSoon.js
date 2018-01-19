@@ -21,8 +21,8 @@ class ComingSoon extends Component {
         });
         const poster = movies.map(movie => (
             <div className="b-movie" key={movie.id} >
-                <div className="b-movie__poster">
-                    <img src={movie.mg} alt={movie.title} />
+                <div className="b-poster">
+                    <img className="b-poster__img" src={movie.mg} alt={movie.title} />
                 </div>
                 <div className="b-movie__title">
                     {movie.title}

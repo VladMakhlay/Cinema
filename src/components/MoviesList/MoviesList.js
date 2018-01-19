@@ -23,13 +23,13 @@ class MoviesList extends Component {
         });
         const poster = movies.map(movie => (
             <div className="b-movie" key={movie.id} >
-                <div className="b-movie__poster">
+                <div className="b-poster">
                     <Link to={{
                         pathname: '/movie',
                         state: { movie },
                     }}
                     >
-                        <img src={movie.mg} alt={movie.title} />
+                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
                     </Link>
                 </div>
                 <div className="b-movie__title">

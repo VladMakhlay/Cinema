@@ -1,0 +1,12 @@
+.b-moviesList {
+  &__header {
+    &--comingSoon {
+      font-family: "Cuprum-Bold", sans-serif;
+      height: 60px;
+      font-size: 30px;
+      justify-content: center;
+      color: $gold;
+      background: $black;
+    }
+  }
+}
