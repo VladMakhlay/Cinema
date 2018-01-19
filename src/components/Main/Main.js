@@ -12,10 +12,10 @@ class Main extends Component {
     render() {
         return (
             <Router>
-                <div className="main">
-                    <div className="main__header">
+                <section className="b-main">
+                    <header className="b-header">
                         <nav className="navbar navbar-inverse navbar-fixed-top">
-                            <div className="container-fluid container-fluid--cuprum">
+                            <div className="container-fluid">
                                 <div className="navbar-header">
                                     <a className="navbar-brand navbar-brand--gold-36" href="#">Cinema</a>
                                 </div>
@@ -25,11 +25,12 @@ class Main extends Component {
                                 </ul>
                             </div>
                         </nav>
-                    </div>
-                    <div className="main__content">
+                    </header>
+                    <div className="b-content">
                         {routes.map(route => <Route key={route.id} {...route} />)}
                     </div>
-                </div>
+                    <footer className="b-footer" />
+                </section>
             </Router>
         );
     }

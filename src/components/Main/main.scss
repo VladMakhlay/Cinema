@@ -1,9 +1,10 @@
-.main {
-  background:$gray-dark url($img_hall) center fixed no-repeat;
+.b-main {
+  background: $gray-dark url($img_hall) center fixed no-repeat;
   width: 100vw;
   min-height: 100vh;
+}
 
-  &__header {
+  .b-header {
     width: 100%;
     height: 55px;
 
@@ -23,6 +24,11 @@
       }
     }
   }
-}
+
+  .b-footer {
+    width: 100%;
+    height: 50px;
+  }
+
 
 
