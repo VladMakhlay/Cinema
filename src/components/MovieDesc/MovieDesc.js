@@ -1,4 +1,8 @@
+/* eslint-disable prefer-const,max-len */
+
 import React, { Component } from 'react';
+import moment from 'moment';
+import showDays from '../../constants/consts';
 
 class MovieDesc extends Component {
     useProps() {
@@ -6,7 +10,24 @@ class MovieDesc extends Component {
     }
     render() {
         const movie = this.useProps();
-        console.log(movie);
+        let days = showDays.filter((entity) => {
+            let dayOfShow;
+            if (entity.day.isSameOrAfter(moment(movie.start_date, 'DD-MM-YYYY')) &&
+                entity.day.isSameOrBefore(moment(movie.end_date, 'DD-MM-YYYY'))) {
+                dayOfShow = entity;
+            }
+            return dayOfShow;
+        });
+        const showTime = days.map(day => (
+            <div className="b-showTime" key={day.id}>
+                <div className="b-showTime__day">
+                    {day.day.format('ddd, DD')}
+                </div>
+                <div className="b-showTime__time">
+                    <span>{movie.title}</span>
+                </div>
+            </div>
+        ));
         return (
             <div className="b-movieDesc">
                 <article className="b-info">
@@ -25,7 +46,9 @@ class MovieDesc extends Component {
                         </div>
                     </div>
                 </article>
-                <div className="b-timeTable" />
+                <div className="b-timeTable">
+                    {showTime}
+                </div>
             </div>
         );
     }
