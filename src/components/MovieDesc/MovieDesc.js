@@ -8,6 +8,7 @@ class MovieDesc extends Component {
     useProps() {
         return this.props.location.state.movie;
     }
+
     render() {
         const movie = this.useProps();
         let days = showDays.filter((entity) => {
@@ -29,25 +30,32 @@ class MovieDesc extends Component {
             </div>
         ));
         return (
-            <div className="b-movieDesc">
-                <article className="b-info">
-                    <div className="b-poster--movieDesc">
-                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+            <div className="b-selectedM">
+                <div className="b-ticketBook">
+                    <div className="b-ticketBook__infoText">
+                        For booking a ticket(s), please select a date below
                     </div>
-                    <div className="b-mainInfo">
-                        <h1 className="b-mainInfo__head">{movie.title}</h1>
-                        <p><b>director: </b>{movie.director}</p>
-                        <p><b>genre: </b>{movie.genre}</p>
-                        <p><b>cast: </b>{movie.cast}</p>
-                    </div>
-                    <div className="b-description">
-                        <div className="b-description__desc">
-                            {movie.description}
+                </div>
+                <div className="b-movieDesc">
+                    <section className="b-info">
+                        <div className="b-poster--movieDesc">
+                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
                         </div>
+                        <div className="b-mainInfo">
+                            <h1 className="b-mainInfo__head">{movie.title}</h1>
+                            <p><b>director: </b>{movie.director}</p>
+                            <p><b>genre: </b>{movie.genre}</p>
+                            <p><b>cast: </b>{movie.cast}</p>
+                        </div>
+                        <div className="b-description">
+                            <div className="b-description__desc">
+                                {movie.description}
+                            </div>
+                        </div>
+                    </section>
+                    <div className="b-timeTable">
+                        {showTime}
                     </div>
-                </article>
-                <div className="b-timeTable">
-                    {showTime}
                 </div>
             </div>
         );

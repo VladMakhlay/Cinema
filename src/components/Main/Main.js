@@ -29,7 +29,7 @@ class Main extends Component {
                     <div className="b-content">
                         {routes.map(route => <Route key={route.id} {...route} />)}
                     </div>
-                    <footer className="b-footer" />
+                    <div className="b-footer" />
                 </section>
             </Router>
         );

@@ -7,32 +7,31 @@
   .b-header {
     width: 100%;
     height: 55px;
+  }
 
-    .container-fluid {
-      font-size: 17px;
+.container-fluid {
+  font-size: 17px;
 
-      .navbar-brand {
+  .navbar-brand {
 
-        &--gold-36 {
-          font-size: 36px;
-          color: $gold;
-        }
-      }
-
-      &--cuprum {
-        font-family: "Cuprum", sans-serif;
-      }
+    &--gold-36 {
+      font-size: 36px;
+      color: $gold;
     }
   }
 
+  &--cuprum {
+    font-family: "Cuprum", sans-serif;
+  }
+}
+
   .b-content {
     width: 100%;
+    height: auto;
   }
 
   .b-footer {
-    width: 100%;
     height: 50px;
-    position: relative;
   }
 
 
