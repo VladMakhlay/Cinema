@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducers from './reducers/index';
+import reducers from './scripts/reducers/index';
 
-import './scss/style.scss';
-import Main from './components/Main/Main';
+import './styles/style.scss';
+import Main from './scripts/components/Main/Main';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 export default store;

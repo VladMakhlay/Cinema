@@ -1,0 +1,9 @@
+@import 'variables';
+@import 'reset';
+@import 'fonts';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
+@import '../scripts/components/Main/main';
+@import '../scripts/components/MoviesList/moviesList';
+@import '../scripts/components/ComingSoon/comingSoon';
+@import '../scripts/components/MovieDesc/movieDesc';
