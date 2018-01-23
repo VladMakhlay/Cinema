@@ -13,7 +13,7 @@ $lg: 1200px;
       @content;
     }
   }@else if $range == sms {
-    @media (min-width: $xs) and (max-width: $sms) {
+    @media (max-width: $sms) {
       @content;
     }
   } @else if $range == sm {
@@ -35,7 +35,7 @@ $lg: 1200px;
 
 $breakpoints: (
         small : 480px,
-        medium: 700px, // Previously 640px
+        medium: 700px,
         large : 1024px
 );
 
@@ -43,6 +43,13 @@ $movies-list-head-font-sizes: (
         null  : 15px,
         small : 16px,
         medium: 19px,
+        large : 20px
+);
+
+$movie-decs-info-text-font-size: (
+        null  : 24px,
+        small : 23px,
+        medium: 22px,
         large : 20px
 );
 

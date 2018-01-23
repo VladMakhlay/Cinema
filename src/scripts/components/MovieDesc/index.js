@@ -37,24 +37,32 @@ class MovieDesc extends Component {
                     </div>
                 </div>
                 <div className="b-movieDesc">
-                    <section className="b-info">
-                        <div className="b-poster--movieDesc">
-                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
-                        </div>
-                        <div className="b-mainInfo">
-                            <h1 className="b-mainInfo__head">{movie.title}</h1>
-                            <p><b>director: </b>{movie.director}</p>
-                            <p><b>genre: </b>{movie.genre}</p>
-                            <p><b>cast: </b>{movie.cast}</p>
-                        </div>
-                        <div className="b-description">
-                            <div className="b-description__desc">
-                                {movie.description}
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                <section className="b-info">
+                                    <div className="b-poster--movieDesc">
+                                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                                    </div>
+                                    <div className="b-mainInfo">
+                                        <h1 className="b-mainInfo__head">{movie.title}</h1>
+                                        <p><b>director: </b>{movie.director}</p>
+                                        <p><b>genre: </b>{movie.genre}</p>
+                                        <p><b>cast: </b>{movie.cast}</p>
+                                    </div>
+                                    <div className="b-description">
+                                        <div className="b-description__desc">
+                                            {movie.description}
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div className="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                <div className="b-timeTable">
+                                    {showTime}
+                                </div>
                             </div>
                         </div>
-                    </section>
-                    <div className="b-timeTable">
-                        {showTime}
                     </div>
                 </div>
             </div>
