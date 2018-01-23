@@ -10,17 +10,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
     color: $oldGold;
     background: $black;
+
+    @include font-size($movies-list-head-font-sizes);
   }
 
   &__today {
-    margin-left: 30px;
+    margin-left: 3vw;
   }
 
   &__date {
-    margin-right: 30px;
+    margin-right: 3vw;
     color: $white;
   }
 
@@ -65,6 +66,7 @@
     color: $white;
     background: $black;
     opacity: .6;
+    font-size: 20px;
 
     &:hover {
       color: $coral;

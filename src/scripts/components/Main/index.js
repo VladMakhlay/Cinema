@@ -18,7 +18,7 @@ class Main extends Component {
                             <nav className="navbar navbar-inverse ">
                                 <div className="container-fluid">
                                     <div className="navbar-header">
-                                        <a className="navbar-brand navbar-brand--gold-36" href="#">Cinema</a>
+                                        <a className="navbar-brand navbar-brand" href="#">Cinema</a>
                                     </div>
                                     <ul className="nav navbar-nav">
                                         <li><Link to="/">Today Playing</Link></li>
