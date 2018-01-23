@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import reducers from './scripts/reducers/index';
 
 import './styles/style.scss';
-import Main from './scripts/components/Main/Main';
+import Main from './scripts/components/Main';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 export default store;
