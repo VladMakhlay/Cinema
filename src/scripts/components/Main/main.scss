@@ -6,7 +6,6 @@
 
   .b-header {
     width: 100%;
-    height: 55px;
   }
 
 .container-fluid {
@@ -14,10 +13,7 @@
 
   .navbar-brand {
 
-    &--gold-36 {
-      font-size: 36px;
-      color: $gold;
-    }
+    font-size: 36px;
   }
 
   &--cuprum {

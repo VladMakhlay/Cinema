@@ -14,17 +14,19 @@ class Main extends Component {
             <Router>
                 <section className="b-main">
                     <header className="b-header">
-                        <nav className="navbar navbar-inverse navbar-fixed-top">
-                            <div className="container-fluid">
-                                <div className="navbar-header">
-                                    <a className="navbar-brand navbar-brand--gold-36" href="#">Cinema</a>
+                        <div className="container">
+                            <nav className="navbar navbar-inverse ">
+                                <div className="container-fluid">
+                                    <div className="navbar-header">
+                                        <a className="navbar-brand navbar-brand--gold-36" href="#">Cinema</a>
+                                    </div>
+                                    <ul className="nav navbar-nav">
+                                        <li><Link to="/">Today Playing</Link></li>
+                                        <li><Link to="/soon">Coming Soon</Link></li>
+                                    </ul>
                                 </div>
-                                <ul className="nav navbar-nav">
-                                    <li><Link to="/">Today Playing</Link></li>
-                                    <li><Link to="/soon">Coming Soon</Link></li>
-                                </ul>
-                            </div>
-                        </nav>
+                            </nav>
+                        </div>
                     </header>
                     <div className="b-content">
                         {routes.map(route => <Route key={route.id} {...route} />)}

@@ -20,12 +20,14 @@ class ComingSoon extends Component {
             return res;
         });
         const poster = movies.map(movie => (
-            <div className="b-movie" key={movie.id} >
-                <div className="b-poster">
-                    <img className="b-poster__img" src={movie.mg} alt={movie.title} />
-                </div>
-                <div className="b-movie__title">
-                    {movie.title}
+            <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
+                <div className="b-movie" key={movie.id} >
+                    <div className="b-poster">
+                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                    </div>
+                    <div className="b-movie__title">
+                        {movie.title}
+                    </div>
                 </div>
             </div>
         ));
@@ -34,8 +36,10 @@ class ComingSoon extends Component {
                 <header className="b-moviesList__header b-moviesList__header--comingSoon">
                     <span className="b-moviesList__soon">Coming Soon</span>
                 </header>
-                <div className="b-moviesList__body">
-                    {poster}
+                <div className="container">
+                    <div className="row">
+                        {poster}
+                    </div>
                 </div>
             </div>
         );

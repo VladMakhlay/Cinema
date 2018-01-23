@@ -24,32 +24,54 @@
     color: $white;
   }
 
-  &__body {
-    min-height: 200px;
-    display: flex;
-    flex-wrap: wrap;
-  }
 }
 
-  .b-movie {
-    width: 18%;
-    height: 18vw;
-    margin: 1%;
-    border: solid 1px $white;
+.container {
+  width: 100%;
+}
 
 
+.b-movie {
+  width: 100%;
+  margin: 0.3vw 0;
+  border: solid 1px $white;
 
-    &__title {
-      width: 100%;
-      height: 20%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $white;
-      background: $black;
-      opacity: .6;
+  @include for-size(xs) {
+    height: 77vw;
+  }
+
+  @include for-size(sm) {
+    height: 36vw;
+  }
+
+  @include for-size(md) {
+    height: 25vw;
+  }
+
+  @include for-size(lg) {
+    height: 20vw;
+  }
+
+  &:hover {
+    border: solid 1px $mediumBlue;
+  }
+
+  &__title {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    background: $black;
+    opacity: .6;
+
+    &:hover {
+      color: $coral;
+      opacity: .8;
     }
   }
+}
 
 .b-poster {
   width: 100%;

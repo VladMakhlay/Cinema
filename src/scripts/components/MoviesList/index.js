@@ -22,18 +22,20 @@ class MoviesList extends Component {
             return res;
         });
         const poster = movies.map(movie => (
-            <div className="b-movie" key={movie.id} >
-                <div className="b-poster">
-                    <Link to={{
-                        pathname: '/movie',
-                        state: { movie },
-                    }}
-                    >
-                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
-                    </Link>
-                </div>
-                <div className="b-movie__title">
-                    {movie.title}
+            <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
+                <div className="b-movie" key={movie.id} >
+                    <div className="b-poster">
+                        <Link to={{
+                            pathname: '/movie',
+                            state: { movie },
+                        }}
+                        >
+                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                        </Link>
+                    </div>
+                    <div className="b-movie__title">
+                        {movie.title}
+                    </div>
                 </div>
             </div>
         ));
@@ -43,8 +45,10 @@ class MoviesList extends Component {
                     <span className="b-moviesList__today">Today Shown</span>
                     <span className="b-moviesList__date">{moment().format('D MMMM Y')}</span>
                 </header>
-                <div className="b-moviesList__body">
-                    {poster}
+                <div className="container">
+                    <div className="row">
+                        {poster}
+                    </div>
                 </div>
             </div>
         );
