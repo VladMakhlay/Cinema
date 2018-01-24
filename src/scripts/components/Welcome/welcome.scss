@@ -1,10 +1,24 @@
 .b-welcome {
-  width: 80%;
-  margin:30px auto;
-  text-align: center;
+  width: 100%;
+
 }
 
 .b-greeting {
+  width: 100%;
+  text-align: center;
   font-size: 40px;
   color: aqua;
+}
+
+.gold {
+  color: $gold;
+}
+
+.b-about-us {
+  font-size: 20px;
+  color: $darkCyan;
+
+  h2 {
+    color:$dark-orange;
+  }
 }
