@@ -18,10 +18,10 @@ class Main extends Component {
                             <nav className="navbar navbar-inverse ">
                                 <div className="container-fluid">
                                     <div className="navbar-header">
-                                        <a className="navbar-brand navbar-brand" href="#">Cinema</a>
+                                        <Link className="navbar-brand navbar-brand" to="/">Cinema</Link>
                                     </div>
                                     <ul className="nav navbar-nav">
-                                        <li><Link to="/">Today Playing</Link></li>
+                                        <li><Link to="/today">Today Playing</Link></li>
                                         <li><Link to="/soon">Coming Soon</Link></li>
                                     </ul>
                                 </div>

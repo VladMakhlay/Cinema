@@ -25,7 +25,7 @@ class MoviesList extends Component {
             <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
                 <div className="b-movie" key={movie.id} >
                     <Link to={{
-                        pathname: '/movie',
+                        pathname: `/movie/${movie.id}`,
                         state: { movie },
                     }}
                     >
