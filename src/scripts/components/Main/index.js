@@ -5,7 +5,7 @@ import {
     Route,
     Link,
 } from 'react-router-dom';
-import routes from '../../routes/index';
+import routes from '../../routes';
 
 
 class Main extends Component {

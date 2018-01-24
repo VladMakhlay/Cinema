@@ -1,8 +1,12 @@
 //bootstrap/fonts
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
+//bootstrap reassign
+$navbar-inverse-brand-color: gold;
+$navbar-inverse-brand-hover-color: lighten(red, 33%);
+$navbar-inverse-link-hover-color: aquamarine;
+
 //images
-$heroes: '../assets/images/heroes.png';
 $img_hall: '../assets/images/hall.jpg';
 $img_hall_cool: '../assets/images/hulk.jpg';
 $welcome-screen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3a67jgKKDen93O8ZW6ud4jnJQiRFwp7o9h4J4R7ZIJLIyK8idA';
@@ -16,6 +20,8 @@ $for-navbar-collapse-max: 640px;
 //colors
 $gold: gold;
 $white: white;
+$red: red;
+$blue: blue;
 $oldGold:#f0ad4e;
 $black: black;
 $coral: coral;

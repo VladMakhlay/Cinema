@@ -11,7 +11,7 @@ class MovieDesc extends Component {
 
     render() {
         const movie = this.useProps();
-        console.log(movie);
+        console.log(this.props);
         let days = showDays.filter((entity) => {
             let dayOfShow;
             if (entity.day.isSameOrAfter(moment(movie.start_date, 'DD-MM-YYYY')) &&
