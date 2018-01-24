@@ -24,7 +24,7 @@
 }
 
 .row {
-  margin: 15px -15px;
+  margin: 20px -15px;
 }
 
 .b-info {
@@ -46,6 +46,8 @@
   @include  for-size(md) {
     height: 35vw;
   }
+
+
 
   @include for-size(xs) {
     height: 60vw;
@@ -94,6 +96,10 @@
 
 .b-timeTable {
   width:100%;
+
+  @include  for-size (sm) {
+    height: 60vw;
+  }
 
   @include  for-size(md) {
     height: 35vw;
