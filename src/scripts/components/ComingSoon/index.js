@@ -33,7 +33,7 @@ class ComingSoon extends Component {
         ));
         return (
             <div className="b-moviesList b-moviesList--comingSoon">
-                <header className="b-moviesList__header b-moviesList__header--comingSoon">
+                <header className="b-moviesList__header ">
                     <span className="b-moviesList__soon">Coming Soon</span>
                 </header>
                 <div className="container">
