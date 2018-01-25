@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
-import loadMovies from '../../actions/moviesList';
 
 
 class ComingSoon extends Component {
-    componentDidMount() {
-        this.props.loadMovies();
-    }
-
     render() {
         let { movies } = this.props.moviesList;
         const today = moment().format();
@@ -46,8 +41,5 @@ class ComingSoon extends Component {
     }
 }
 
-export default connect(
-    state => ({ moviesList: state.moviesList }),
-    { loadMovies },
-)(ComingSoon);
+export default connect(state => ({ moviesList: state.moviesList }))(ComingSoon);
 

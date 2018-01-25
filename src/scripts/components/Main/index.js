@@ -1,14 +1,20 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,
     Link,
 } from 'react-router-dom';
+
+import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
 
 
 class Main extends Component {
+    componentDidMount() {
+        this.props.loadMovies();
+    }
     render() {
         return (
             <Router>
@@ -38,4 +44,7 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default connect(
+    state => ({ moviesList: state.moviesList }),
+    { loadMovies },
+)(Main);

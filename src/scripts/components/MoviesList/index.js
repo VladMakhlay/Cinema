@@ -3,13 +3,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import loadMovies from '../../actions/moviesList';
 
 class MoviesList extends Component {
-    componentDidMount() {
-        this.props.loadMovies();
-    }
-
     render() {
         let { movies } = this.props.moviesList;
         const today = moment().format();
@@ -26,7 +21,6 @@ class MoviesList extends Component {
                 <div className="b-movie" key={movie.id} >
                     <Link to={{
                         pathname: `/movie/${movie.id}`,
-                        state: { movie },
                     }}
                     >
                         <div className="b-poster">
@@ -55,7 +49,4 @@ class MoviesList extends Component {
     }
 }
 
-export default connect(
-    state => ({ moviesList: state.moviesList }),
-    { loadMovies },
-)(MoviesList);
+export default connect(state => ({ moviesList: state.moviesList }))(MoviesList);
