@@ -1,6 +1,5 @@
 .b-main {
   background: $fogging-6, $black url($img_hall_cool)  center fixed no-repeat;
-  width: 100vw;
   min-height: 100vh;
 }
 
@@ -11,15 +10,11 @@
 .container-fluid {
   font-size: 17px;
 
-  .navbar-brand {
 
+  .navbar-brand {
     font-size: 36px;
   }
-
-  &--cuprum {
-    font-family: "Cuprum", sans-serif;
-  }
-}
+ }
 
   .b-content {
     width: 100%;

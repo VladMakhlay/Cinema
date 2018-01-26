@@ -35,11 +35,11 @@ class MoviesList extends Component {
         ));
         return (
             <div className="b-moviesList">
-                <header className="b-moviesList__header">
-                    <span className="b-moviesList__today">Today Shown</span>
-                    <span className="b-moviesList__date">{moment().format('D MMMM Y')}</span>
-                </header>
                 <div className="container">
+                    <header className="b-moviesList__header">
+                        <span className="b-moviesList__today">Today Shown</span>
+                        <span className="b-moviesList__date">{moment().format('D MMMM Y')}</span>
+                    </header>
                     <div className="row">
                         {poster}
                     </div>

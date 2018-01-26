@@ -2,9 +2,12 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 //bootstrap reassign
+$font-family-sans-serif: 'Cuprum', sans-serif;
 $navbar-inverse-brand-color: gold;
 $navbar-inverse-brand-hover-color: lighten(red, 33%);
 $navbar-inverse-link-hover-color: aquamarine;
+
+$navbar-inverse-link-active-bg: black;
 
 //images
 $img_hall: '../assets/images/hall.jpg';

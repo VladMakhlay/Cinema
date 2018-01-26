@@ -1,7 +1,5 @@
 .b-moviesList {
-  width: 60%;
   margin: 20px auto;
-  border: solid 1px $white;
   font-family: "Cuprum", sans-serif;
 
   &__header {
@@ -17,20 +15,15 @@
   }
 
   &__today {
-    margin-left: 3vw;
+    margin-left: 8vw;
   }
 
   &__date {
-    margin-right: 3vw;
+    margin-right: 8vw;
     color: $white;
   }
 
 }
-
-.container {
-  width: 100%;
-}
-
 
 .b-movie {
   width: 100%;
@@ -38,19 +31,23 @@
   border: solid 1px $white;
 
   @include for-size(xs) {
-    height: 77vw;
+    height: 155vw;
   }
 
   @include for-size(sm) {
-    height: 36vw;
+    height: 60vw;
   }
 
   @include for-size(md) {
-    height: 25vw;
+    height: 43vw;
   }
 
   @include for-size(lg) {
-    height: 20vw;
+    height: 30vw;
+  }
+
+  @include for-size(xlg) {
+    hieght: 35px;
   }
 
   &:hover {
@@ -82,9 +79,9 @@
 .b-poster {
   width: 100%;
   height: 80%;
+  overflow: hidden;
 
   &__img {
     width: 100%;
-    height: 100%;
   }
 }

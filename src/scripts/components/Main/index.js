@@ -27,7 +27,7 @@ class Main extends Component {
                                         <Link className="navbar-brand navbar-brand" to="/">Cinema</Link>
                                     </div>
                                     <ul className="nav navbar-nav">
-                                        <li><Link to="/today">Today Playing</Link></li>
+                                        <li className="active"><Link to="/today">Today Playing</Link></li>
                                         <li><Link to="/soon">Coming Soon</Link></li>
                                     </ul>
                                 </div>
