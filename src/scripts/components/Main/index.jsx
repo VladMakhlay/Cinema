@@ -28,13 +28,11 @@ class Main extends Component {
         this.setState({ active: e });
     }
     render() {
-        console.log(this.state);
         const list = listItemNames.map(item => (
             <li
                 key={item.id}
                 className={this.state.active === item.id ? 'active' : ''}
                 onClick={this.act.bind(this, item.id)}
-                onKeyPress={this.act.bind(this, item.id)}
             >
                 <Link to={item.path}>{item.name}</Link>
             </li>
