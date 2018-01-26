@@ -1,6 +1,6 @@
-import MoviesList from '../components/MoviesList';
-import ComingSoon from '../components/ComingSoon';
-import MovieDesc from '../components/MovieDesc';
+import MoviesList from '../components/MoviesList/index';
+import ComingSoon from '../components/ComingSoon/index';
+import MovieDesc from '../components/MovieDesc/index';
 import Welcome from '../components/Welcome/index';
 
 const routes = [

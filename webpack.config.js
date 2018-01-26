@@ -7,7 +7,7 @@ const merge = require('webpack-merge');
 
 const common = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.jsx',
     },
     output: {
         filename: '[name].[hash:5].js',
@@ -91,6 +91,9 @@ const common = {
         }),
 
     ],
+    resolve: {
+        extensions: ['.jsx', '.js', '.json'],
+    },
 };
 
 const productionConfig = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import MoviesList from '../MoviesList';
+import MoviesList from '../MoviesList/index';
 
 class Welcome extends Component {
     render() {
