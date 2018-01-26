@@ -26,8 +26,6 @@
 }
 
 .b-movie {
-  width: 100%;
-  margin: 0.3vw 0;
   border: solid 1px $white;
 
   @include for-size(xs) {

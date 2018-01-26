@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const showDays = [
+export const showDays = [
     {
         id: 1,
         day: moment(),
@@ -31,4 +31,14 @@ const showDays = [
     },
 ];
 
-export default showDays;
+export const listItemNames = [
+    {
+        id: 1,
+        name: 'Today Playing',
+    },
+    {
+        id: 2,
+        name: 'Coming Soon',
+    },
+];
+
