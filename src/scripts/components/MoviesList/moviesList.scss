@@ -1,6 +1,5 @@
 .b-moviesList {
-  margin: 20px auto;
-  font-family: "Cuprum", sans-serif;
+
 
   &__header {
     width: 100%;
@@ -26,6 +25,7 @@
 }
 
 .b-movie {
+  margin-bottom: 20px;
   border: solid 1px $white;
 
   @include for-size(xs) {

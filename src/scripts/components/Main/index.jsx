@@ -20,7 +20,7 @@ class Main extends Component {
             <Router>
                 <section className="b-main">
                     <header className="b-header">
-                        <div className="container">
+                        <div className="container-fluid">
                             <nav className="navbar navbar-inverse ">
                                 <div className="container-fluid">
                                     <div className="navbar-header">
