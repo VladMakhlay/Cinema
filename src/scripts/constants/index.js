@@ -35,10 +35,12 @@ export const listItemNames = [
     {
         id: 1,
         name: 'Today Playing',
+        path: '/today',
     },
     {
         id: 2,
         name: 'Coming Soon',
+        path: '/soon',
     },
 ];
 

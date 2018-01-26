@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -9,13 +8,37 @@ import {
 
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
+import { listItemNames } from '../../constants/index';
 
 
 class Main extends Component {
+    constructor() {
+        super();
+        this.state = {
+            active: '',
+        };
+    }
+
     componentDidMount() {
         this.props.loadMovies();
+        this.act();
+    }
+
+    act(e) {
+        this.setState({ active: e });
     }
     render() {
+        console.log(this.state);
+        const list = listItemNames.map(item => (
+            <li
+                key={item.id}
+                className={this.state.active === item.id ? 'active' : ''}
+                onClick={this.act.bind(this, item.id)}
+                onKeyPress={this.act.bind(this, item.id)}
+            >
+                <Link to={item.path}>{item.name}</Link>
+            </li>
+        ));
         return (
             <Router>
                 <section className="b-main">
@@ -24,11 +47,10 @@ class Main extends Component {
                             <nav className="navbar navbar-inverse ">
                                 <div className="container-fluid">
                                     <div className="navbar-header">
-                                        <Link className="navbar-brand navbar-brand" to="/">Cinema</Link>
+                                        <a className="navbar-brand navbar-brand" href="/">Cinema</a>
                                     </div>
                                     <ul className="nav navbar-nav">
-                                        <li className="active"><Link to="/today">Today Playing</Link></li>
-                                        <li><Link to="/soon">Coming Soon</Link></li>
+                                        {list}
                                     </ul>
                                 </div>
                             </nav>
