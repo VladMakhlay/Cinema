@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import { showDays } from '../../constants';
+import showDays from '../../constants';
 
 
 class MovieDesc extends Component {

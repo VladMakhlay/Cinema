@@ -3,40 +3,19 @@ import { connect } from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,
-    Link,
+    NavLink,
 } from 'react-router-dom';
 
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
-import { listItemNames } from '../../constants/index';
 
 
 class Main extends Component {
-    constructor() {
-        super();
-        this.state = {
-            active: '',
-        };
-    }
-
     componentDidMount() {
         this.props.loadMovies();
-        this.act();
     }
 
-    act(e) {
-        this.setState({ active: e });
-    }
     render() {
-        const list = listItemNames.map(item => (
-            <li
-                key={item.id}
-                className={this.state.active === item.id ? 'active' : ''}
-                onClick={this.act.bind(this, item.id)}
-            >
-                <Link to={item.path}>{item.name}</Link>
-            </li>
-        ));
         return (
             <Router>
                 <section className="b-main">
@@ -45,10 +24,35 @@ class Main extends Component {
                             <nav className="navbar navbar-inverse ">
                                 <div className="container-fluid">
                                     <div className="navbar-header">
-                                        <a className="navbar-brand navbar-brand" href="/">Cinema</a>
+                                        <NavLink
+                                            className="navbar-brand navbar-brand"
+                                            to="/"
+                                            activeClassName="active"
+                                        >Cinema
+                                        </NavLink>
                                     </div>
                                     <ul className="nav navbar-nav">
-                                        {list}
+                                        <li>
+                                            <NavLink
+                                                to="/today"
+                                                activeStyle={{
+                                                    background: 'black',
+                                                    color: 'aquamarine',
+                                                }}
+                                            >
+                                            Today Playing
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/soon"
+                                                activeStyle={{
+                                                    background: 'black',
+                                                    color: 'aquamarine',
+                                                }}
+                                            >Coming Soon
+                                            </NavLink>
+                                        </li>
                                     </ul>
                                 </div>
                             </nav>
