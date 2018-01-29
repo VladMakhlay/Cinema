@@ -31,6 +31,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 40px;
   font-size: 19px;
   color:$white;
 
@@ -44,20 +45,20 @@
   }
 
   @include  for-size(md) {
-    height: 35vw;
+    height: 34vw;
   }
 
 
 
   @include for-size(xs) {
-    height: 60vw;
+    height: 55vw;
   }
 }
 
 .b-poster {
   &--movieDesc {
     width:35%;
-    height: 70%;
+   max-height: 350px;
     border: solid 1px $gray-lighter;
   }
 }
@@ -98,15 +99,15 @@
   width:100%;
 
   @include  for-size (sm) {
-    height: 60vw;
+    height: 55vw;
   }
 
   @include  for-size(md) {
-    height: 35vw;
+    height: 34vw;
   }
 
   @include for-size(xs) {
-    height: 60vw;
+    height: 55vw;
   }
 }
 
