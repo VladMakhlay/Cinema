@@ -4,6 +4,8 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import './moviesList.scss';
+
 class MoviesList extends Component {
     render() {
         let { movies } = this.props.moviesList;

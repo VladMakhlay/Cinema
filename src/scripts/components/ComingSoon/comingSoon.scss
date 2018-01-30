@@ -5,15 +5,52 @@
       height: 60px;
       font-size: 30px;
       justify-content: center;
-      color: $gold;
-      background: $black;
+      color: gold;
+      background: black;
     }
 
     .b-movie {
         &:hover {
-          border: solid 1px $dark-orange;
+          border: solid 1px darkorange;
       }
     }
+  }
+}
+
+.b-movie {
+  margin-bottom: 20px;
+  border: solid 1px white;
+  height: 420px;
+
+  a:link {
+    text-decoration: none;
+  }
+
+  &__title {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: black;
+    opacity: .6;
+    font-size: 20px;
+
+    &:hover {
+      color: coral;
+      opacity: .8;
+    }
+  }
+}
+
+.b-poster {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
   }
 }
 

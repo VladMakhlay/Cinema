@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 
+import './comingSoon.scss';
+
 
 class ComingSoon extends Component {
     render() {

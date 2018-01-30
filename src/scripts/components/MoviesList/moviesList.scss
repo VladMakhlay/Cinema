@@ -7,10 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $oldGold;
-    background: $black;
-
-    @include font-size($movies-list-head-font-sizes);
+    color: #f0ad4e;
+    background: black;
+    font-size: 19px;
   }
 
   &__today {
@@ -19,18 +18,18 @@
 
   &__date {
     margin-right: 8vw;
-    color: $white;
+    color: white;
   }
 
 }
 
 .b-movie {
   margin-bottom: 20px;
-  border: solid 1px $white;
+  border: solid 1px white;
   height: 420px;
 
   &:hover {
-    border: solid 1px $mediumBlue;
+    border: solid 1px mediumBlue;
   }
 
   a:link {
@@ -43,13 +42,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: $white;
-    background: $black;
+    color: white;
+    background: black;
     opacity: .6;
     font-size: 20px;
 
     &:hover {
-      color: $coral;
+      color: coral;
       opacity: .8;
     }
   }
