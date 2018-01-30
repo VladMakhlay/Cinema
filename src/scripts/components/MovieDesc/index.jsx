@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import showDays from '../../constants';
-
+import './movieDesc.scss';
 
 class MovieDesc extends Component {
     render() {
@@ -66,7 +66,7 @@ class MovieDesc extends Component {
                     </div>
                 </div>
                 <div className="b-movieDesc">
-                    <div className="container">
+                    <div className="container-fluid">
                         <div className="row">
                             <div className="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                 {selectedMovie}

@@ -6,7 +6,7 @@
 .b-movieDesc {
   width: 100%;
   display: flex;
-  background: $semiBlack;
+  background: rgba(0, 0, 0, .2);
 }
 
 .b-ticketBook {
@@ -17,9 +17,8 @@
   align-items: center;
 
   &__infoText {
-    color: $alert-success-bg;
-
-    @include font-size($movie-decs-info-text-font-size);
+    color: lightgreen;
+    font-size: 18px;
   }
 }
 
@@ -33,7 +32,7 @@
   flex-wrap: wrap;
   margin-bottom: 40px;
   font-size: 19px;
-  color:$white;
+  color: white;
 
   p {
     text-indent: 5px;
@@ -41,14 +40,14 @@
   }
 
   b {
-    color:$oldGold;
+    color:#f0ad4e;
   }
 
-  @include  for-size(md) {
+  @media screen and (min-width: 992px) {
     height: 34vw;
   }
 
-  @include for-size(xs) {
+  @media screen and (max-width: 991px) {
     height: 55vw;
   }
 }
@@ -58,7 +57,7 @@
     width:35%;
     max-height: 350px;
     overflow: hidden;
-    border: solid 1px $gray-lighter;
+    border: solid 1px lightgray;
   }
 }
 
@@ -69,7 +68,7 @@
 
   &__head {
     text-align: center;
-    color: $mediumBlue;
+    color: mediumBlue;
     font-weight: 700;
   }
 }
@@ -83,7 +82,7 @@
   &__desc {
     width: 100%;
     height: 100%;
-    color: $lightBlue;
+    color: DodgerBlue;
     padding-right: 5px;
     text-indent: 30px;
     overflow: auto;
@@ -97,15 +96,11 @@
 .b-timeTable {
   width:100%;
 
-  @include  for-size (sm) {
-    height: 55vw;
-  }
-
-  @include  for-size(md) {
+  @media screen and (min-width: 992px) {
     height: 34vw;
   }
 
-  @include for-size(xs) {
+  @media screen and (max-width: 991px) {
     height: 55vw;
   }
 }
@@ -116,7 +111,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px $white;
+  border: solid 1px white;
 
   &__day {
     width: 30%;
@@ -125,11 +120,11 @@
     align-items: center;
     display: flex;
     font-size: 20px;
-    color: $aquamarine;
-    background: $semigreen;
+    color: aquamarine;
+    background: rgba(124,252,0, .1);
 
     &:hover {
-      background-color: $darkCyan;
+      background-color: darkCyan;
     }
   }
 
@@ -140,13 +135,13 @@
     justify-content: center;
     align-items: center;
     font-size: 17px;
-    color:$coral;
-    background-color: $semiPink;
+    color:coral;
+    background-color: rgba(255,20,147, .1);
   }
 }
 
 .b-notToday {
   text-align: center;
-  color: $oldGold;
+  color: #f0ad4e;
   font-size: 30px;
 }
