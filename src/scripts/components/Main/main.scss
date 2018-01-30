@@ -1,5 +1,6 @@
 .b-main {
-  background: $fogging-6, $black url($img_hall_cool)  center fixed no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+  black url('./../../../assets/images/hulk.jpg')  center fixed no-repeat;
   min-height: 100vh;
 }
 
@@ -11,13 +12,13 @@
     font-size: 36px;
 }
 
-  .b-content {
+.b-content {
 
-  }
+}
 
-  .b-footer {
-    height: 50px;
-  }
+.b-footer {
+  height: 50px;
+}
 
 
 

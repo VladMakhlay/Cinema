@@ -8,6 +8,7 @@ import {
 
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
+import './main.scss';
 
 
 class Main extends Component {
