@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import './welcome.scss';
 import MoviesList from '../MoviesList/index';
 
 class Welcome extends Component {
@@ -7,7 +8,7 @@ class Welcome extends Component {
         return (
             <section className="b-welcome">
                 <div className="b-greeting">
-                    <span className="gold"><b>Welcome</b></span>
+                    <span className="gold">Welcome</span>
                 </div>
                 <MoviesList />
             </section>
