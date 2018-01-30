@@ -48,8 +48,6 @@
     height: 34vw;
   }
 
-
-
   @include for-size(xs) {
     height: 55vw;
   }
@@ -58,7 +56,8 @@
 .b-poster {
   &--movieDesc {
     width:35%;
-   max-height: 350px;
+    max-height: 350px;
+    overflow: hidden;
     border: solid 1px $gray-lighter;
   }
 }
