@@ -33,8 +33,8 @@ class MovieDesc extends Component {
         const showTime = chosenMovies.map((movie) => {
             let days = showDays.filter((entity) => {
                 let dayOfShow;
-                if (entity.day.isSameOrAfter(moment(movie.start_date, 'DD-MM-YYYY')) &&
-                    entity.day.isSameOrBefore(moment(movie.end_date, 'DD-MM-YYYY'))) {
+                if (entity.day.isSameOrAfter(moment(movie.show_days[0], 'DD-MM-YYYY')) &&
+                    entity.day.isSameOrBefore(moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY'))) {
                     dayOfShow = entity;
                 }
                 return dayOfShow;
