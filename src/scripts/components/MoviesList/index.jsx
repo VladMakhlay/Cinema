@@ -9,7 +9,6 @@ import './moviesList.scss';
 class MoviesList extends Component {
     render() {
         let { movies } = this.props.moviesList;
-        console.log(movies);
         const today = moment().format();
         movies = movies.filter((movie) => {
             let res;

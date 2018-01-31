@@ -11,7 +11,7 @@ class ComingSoon extends Component {
         const today = moment().format();
         movies = movies.filter((movie) => {
             let res;
-            if (moment(movie.start_date, 'DD-MM-YYYY').isAfter(today)) {
+            if (moment(movie.show_days[0], 'DD-MM-YYYY').isAfter(today)) {
                 res = movie;
             }
             return res;
