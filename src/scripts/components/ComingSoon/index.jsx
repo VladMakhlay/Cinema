@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import './comingSoon.scss';
 
@@ -19,12 +20,17 @@ class ComingSoon extends Component {
         const poster = movies.map(movie => (
             <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
                 <div className="b-movie" key={movie.id} >
-                    <div className="b-poster">
-                        <img className="b-poster__img" src={movie.mg} alt={movie.title} />
-                    </div>
-                    <div className="b-movie__title">
-                        {movie.title}
-                    </div>
+                    <Link to={{
+                        pathname: `/movie/${movie.id}`,
+                    }}
+                    >
+                        <div className="b-poster">
+                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                        </div>
+                        <div className="b-movie__title">
+                            {movie.title}
+                        </div>
+                    </Link>
                 </div>
             </div>
         ));
