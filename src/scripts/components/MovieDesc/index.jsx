@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import moment from 'moment';
 import './movieDesc.scss';
 
 class MovieDesc extends Component {
@@ -36,11 +37,28 @@ class MovieDesc extends Component {
                 </div>
             </section>
         ));
-        const timing = chosenMovies.map(movie => movie.show_time.map(unit => (
-            <div className="b-timeTable__timeUnit" key={unit}>
-                {unit}
-            </div>
-        )));
+        const timing = chosenMovies.map((movie) => {
+            const today = moment().format();
+            const firstDay = moment(movie.show_days[0], 'DD-MM-YYYY');
+            if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
+                moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
+                return movie.show_time.map(unit => (
+                    <div className="b-timeTable__timeUnit" key={unit}>
+                        {unit}
+                    </div>
+                ));
+            }
+            return (
+                <div className="b-timeTable__premiere" key={movie.id}>
+                    <span>
+                        Premiere will be on :
+                        <b className="b-timeTable__premiere--date">
+                            {firstDay.format('dddd, MMMM Do YYYY')}
+                        </b>
+                    </span>
+                </div>
+            );
+        });
 
         return (
             <div className="b-selectedM">

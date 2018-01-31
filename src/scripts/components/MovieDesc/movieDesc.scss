@@ -85,6 +85,16 @@
       background-color: #008B8B;
     }
   }
+
+  &__premiere {
+    color: white;
+    font-size: 20px;
+
+    &--date {
+      color: greenyellow;
+      font-size: 23px;
+    }
   }
+}
 
 
