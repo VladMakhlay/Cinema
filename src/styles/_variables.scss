@@ -1,0 +1,40 @@
+//bootstrap/fonts
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
+//bootstrap reassign
+$font-family-sans-serif: 'Cuprum', sans-serif;
+$navbar-inverse-brand-color: gold;
+$navbar-inverse-brand-hover-color: lighten(red, 33%);
+$navbar-inverse-link-hover-color: lighten(blue, 40%);
+
+$navbar-inverse-link-active-bg: black;
+
+//images
+$img_hall: '../assets/images/hall.jpg';
+$img_hall_cool: '../assets/images/hulk.jpg';
+$welcome-screen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY3a67jgKKDen93O8ZW6ud4jnJQiRFwp7o9h4J4R7ZIJLIyK8idA';
+
+//effects
+$fogging-6: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+
+//sizes
+$for-navbar-collapse-max: 640px;
+
+//colors
+$gold: gold;
+$white: white;
+$red: red;
+$blue: blue;
+$oldGold:#f0ad4e;
+$black: black;
+$coral: coral;
+$mediumBlue: #0000CD;
+$aquamarine: #7FFFD4;
+$darkCyan: #008B8B;
+$dark-orange:DarkOrange;
+
+$semiBlack: rgba(0, 0, 0, .2);
+$semiWhite: rgba(255, 255, 255, .1);
+$lightBlue: DodgerBlue ;
+$semiPink: rgba(255,20,147, .1);
+$semigreen: rgba(124,252,0, .1);

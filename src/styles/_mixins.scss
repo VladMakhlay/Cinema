@@ -1,0 +1,78 @@
+//@media for-size
+
+$xs: 320px;
+$sms: 500px;
+$sm: 768px;
+$md:992px;
+$lg: 1200px;
+$xlg: 1366px;
+
+
+@mixin for-size($range) {
+  @if $range == xs {
+    @media (max-width: #{$sm - 1}) {
+      @content;
+    }
+  }@else if $range == sms {
+    @media (max-width: $sms) {
+      @content;
+    }
+  } @else if $range == sm {
+    @media (min-width: $sm) {
+      @content;
+    }
+  } @else if $range == md {
+    @media (min-width: $md) {
+      @content;
+    }
+  } @else if $range == lg {
+    @media (min-width: $lg) {
+      @content;
+    }
+  }@else if $range == xlg {
+    @media (min-width: $xlg) {
+      @content;
+    }
+  }
+}
+
+//font-maps
+
+$breakpoints: (
+        small : 480px,
+        medium: 700px,
+        large : 1024px
+);
+
+$movies-list-head-font-sizes: (
+        null  : 15px,
+        small : 16px,
+        medium: 19px,
+        large : 20px
+);
+
+$movie-decs-info-text-font-size: (
+        null  : 24px,
+        small : 23px,
+        medium: 22px,
+        large : 20px
+);
+
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      // If $fs-font-size is a key that exists in
+      // $fs-breakpoints, use the value
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}

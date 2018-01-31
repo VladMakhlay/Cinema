@@ -21,44 +21,62 @@
   },
   "homepage": "https://github.com/VladMakhlay/Cinema#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "bootstrap-sass": "^3.3.7",
     "debug": "^3.1.0",
     "fs": "0.0.1-security",
     "imagemin-webpack-plugin": "^1.5.2",
+    "img-loader": "^2.0.0",
+    "moment": "^2.20.1",
     "net": "^1.0.2",
     "path": "^0.12.7",
-    "react": "^16.2.0"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "webpack-preset": "^0.2.0",
+    "webpack-preset-babel": "^0.2.0",
+    "webpack-preset-babel-stage-2": "^0.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.1.2",
     "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
     "csv-loader": "^2.1.1",
-    "eslint": "^4.14.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
+    "html-loader": "^0.5.4",
     "html-webpack-plugin": "^2.30.1",
     "img-loader": "^2.0.0",
     "node-sass": "^4.7.2",
     "node-static": "^0.7.10",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
-    "uglifyjs-webpack-plugin": "^1.1.4",
+    "uglifyjs-webpack-plugin": "^1.1.5",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "webpack-merge": "^4.1.1",
     "xml-loader": "^1.2.1"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "env": {
       "node": true,
       "browser": true,
@@ -66,7 +84,9 @@
       "es6": true
     },
     "extends": [
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "airbnb"
     ],
     "parserOptions": {
       "ecmaFeatures": {
@@ -79,15 +99,18 @@
       "react"
     ],
     "rules": {
-      "no-console": [
-        "off",
-        {
-          "allow": [
-            "warn",
-            "error"
-          ]
-        }
-      ],
+      "no-console": "off",
+      "consistent-return": "off",
+      "react/no-set-state": "off",
+      "react/jsx-filename-extension": "off",
+      "react/prefer-stateless-function": "off",
+      "react/jsx-indent": "off",
+      "react/jsx-no-bind": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "jsx-a11y/no-noninteractive-element-interactions": "off",
+      "react/jsx-indent-props": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "react/prop-types": "off",
       "indent": [
         "error",
         4
