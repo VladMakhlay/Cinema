@@ -1,7 +1,8 @@
-import MoviesList from '../components/MoviesList/index';
-import ComingSoon from '../components/ComingSoon/index';
-import MovieDesc from '../components/MovieDesc/index';
-import Welcome from '../components/Welcome/index';
+import MoviesList from '../components/MoviesList';
+import ComingSoon from '../components/ComingSoon';
+import MovieDesc from '../components/MovieDesc';
+import Welcome from '../components/Welcome';
+import Hall from '../components/Hall';
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         id: 4,
         path: '/movie/:id',
         component: MovieDesc,
+    },
+    {
+        id: 5,
+        path: '/hall',
+        component: Hall,
     },
 ];
 export default routes;
