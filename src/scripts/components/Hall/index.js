@@ -7,7 +7,7 @@ class Hall extends Component {
         return (
             <div className="b-hall">
                 <div className="b-hall-header">
-                   Hall
+                   Here you will be able to choose a seat(s) soon.
                 </div>
             </div>
         );
