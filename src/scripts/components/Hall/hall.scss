@@ -1,6 +1,117 @@
 .b-hall {
 
+  &__screen {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: aqua;
+    margin-top: 20px;
+  }
+}
 
+.b-place {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+  &__seat {
+    width: 20px;
+    height: 15px;
+    border: solid 1px white;
+    margin-bottom: 4px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    &:hover {
+      background-color: #0000CD;
+    }
+  }
+
+  &__vipSeat {
+    width: 45px;
+    height:15px;
+    border: solid 1px white;
+    margin-bottom: 4px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    &:hover {
+      background-color: #0000CD;
+    }
+  }
+
+  &--sec {
+    width: 6.666%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &--vip {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
+
+.b-seat-zone {
+  display: flex;
+  justify-content: center;
+}
+
+.b-numeration {
+  text-align: center;
+
+
+}
+
+.b-main-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+
+  @media screen and (max-width: 420px) {
+    width: 77%;
+  }
+  @media screen and (min-width: 421px) and (max-width: 520px) {
+    width: 65%;
+  }
+  @media screen and (min-width: 521px) and (max-width: 700px) {
+    width: 55%;
+  }
+  @media screen and (min-width: 701px) and (max-width: 991px) {
+    width: 48%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 40%;
+  }
+}
+
+.b-first-zone {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.b-second-zone {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.b-vip-zone {
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .b-hall-header {
@@ -8,5 +119,4 @@
   height: 70px;
   text-align: center;
   color: red;
-  background-color: lightgray;
  }
