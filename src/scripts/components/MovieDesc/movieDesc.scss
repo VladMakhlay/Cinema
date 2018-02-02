@@ -6,7 +6,6 @@
 .b-movieDesc {
   width: 100%;
   display: flex;
-  background: rgba(0, 0, 0, .2);
 }
 
 .b-ticketBook {
@@ -23,13 +22,9 @@
 }
 
 .row {
-  margin: 20px -15px;
 }
 
 .b-info {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   margin-bottom: 40px;
   font-size: 19px;
   color: white;
@@ -42,28 +37,17 @@
   b {
     color:#f0ad4e;
   }
-
-  @media screen and (min-width: 992px) {
-    height: 34vw;
-  }
-
-  @media screen and (max-width: 991px) {
-    height: 55vw;
-  }
 }
 
 .b-poster {
   &--movieDesc {
-    width:35%;
-    max-height: 350px;
+    max-height: 400px;
     overflow: hidden;
-    border: solid 1px lightgray;
-  }
+}
 }
 
 .b-mainInfo {
-  width: 65%;
-  height: 70%;
+  height: 380px;
   overflow: hidden;
 
   &__head {
@@ -74,74 +58,43 @@
 }
 
 .b-description {
-  width: 100%;
-  height: 28%;
-  margin-top: 2%;
-  overflow: hidden;
 
-  &__desc {
-    width: 100%;
-    height: 100%;
+   &__desc {
     color: DodgerBlue;
     padding-right: 5px;
     text-indent: 30px;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      width: 0;
-    }
   }
 }
 
 .b-timeTable {
-  width:100%;
-
-  @media screen and (min-width: 992px) {
-    height: 34vw;
-  }
-
-  @media screen and (max-width: 991px) {
-    height: 55vw;
-  }
-}
-
-.b-showTime {
   width: 100%;
-  height: 14.28%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  border: solid 1px white;
 
-  &__day {
-    width: 30%;
-    height: 100%;
+  &__timeUnit {
+    width: 50px;
+    height: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    font-size: 20px;
-    color: aquamarine;
-    background: rgba(124,252,0, .1);
+    color: white;
+    margin: 0 10px;
+    border: solid 1px goldenrod;
 
     &:hover {
-      background-color: darkCyan;
+      background-color: #008B8B;
     }
   }
 
-  &__time {
-    width: 70%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 17px;
-    color:coral;
-    background-color: rgba(255,20,147, .1);
+  &__premiere {
+    color: white;
+    font-size: 20px;
+
+    &--date {
+      color: greenyellow;
+      font-size: 23px;
+    }
   }
 }
 
-.b-notToday {
-  text-align: center;
-  color: #f0ad4e;
-  font-size: 30px;
-}
+

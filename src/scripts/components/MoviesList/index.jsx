@@ -12,8 +12,8 @@ class MoviesList extends Component {
         const today = moment().format();
         movies = movies.filter((movie) => {
             let res;
-            if (moment(movie.start_date, 'DD-MM-YYYY').isSameOrBefore(today) &&
-                moment(movie.end_date, 'DD-MM-YYYY').isSameOrAfter(today)) {
+            if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
+                moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
                 res = movie;
             }
             return res;
