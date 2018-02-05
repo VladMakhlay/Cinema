@@ -2,48 +2,66 @@
 import React, { Component } from 'react';
 
 import './hall.scss';
+import {
+    FIRST_ROW_NUM,
+    FIRST_SEAT_NUM,
+    SECOND_ROW_NUM,
+    SECOND_SEAT_NUM,
+    VIP_SEAT_NUM,
+    VIP_ROW_NUM,
+    TOTAL_ROW_NUM } from '../../constants';
+import Place from '../Place';
 
 class Hall extends Component {
     render() {
         const num = [];
-        for (let i = 0; i < 20; i += 1) {
-            const numi = (
+        for (let i = 0; i < TOTAL_ROW_NUM; i += 1) {
+            const number = (
                 <div className="num" key={i + 1}>
                     <span className="gold">{i + 1}</span>
                 </div>
             );
-            num.push(numi);
+            num.push(number);
         }
 
         const first = [];
-        for (let i = 0; i < 9; i += 1) {
-            for (let j = 0; j < 10; j += 1) {
+        for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
+            for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 const fir = (
-                    <div className="b-place" id={`${i + 1}_${j + 1}`} key={`${i + 1}_${j + 1}`}>
-                        <div className="b-place__seat" />
-                    </div>
+                    <Place
+                        PlaceClassName="b-place"
+                        SeatClassName="b-place__seat"
+                        id={`${i + 1}_${j + 1}`}
+                        key={`${i + 1}_${j + 1}`}
+                    />
                 );
                 first.push(fir);
             }
         }
         const second = [];
-        for (let i = 0; i < 10; i += 1) {
-            for (let j = 0; j < 15; j += 1) {
+        for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
+            for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
                 const sec = (
-                    <div className="b-place--sec" id={`${i + 10}_${j + 1}`} key={`${i + 10}_${j + 1}`}>
-                        <div className="b-place__seat" />
-                    </div>
+                    <Place
+                        PlaceClassName="b-place b-place--sec"
+                        SeatClassName="b-place__seat"
+                        id={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
+                        key={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
+                    />
                 );
                 second.push(sec);
             }
         }
         const vip = [];
-        for (let i = 0; i < 1; i += 1) {
-            for (let j = 0; j < 4; j += 1) {
+        for (let i = 0; i < VIP_ROW_NUM; i += 1) {
+            for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
                 const vvv = (
-                    <div className="b-place--vip" id={`${i + 20}_${j + 1}`} key={`${i + 20}_${j + 1}`}>
-                        <div className="b-place__vipSeat" />
-                    </div>
+                    <Place
+                        PlaceClassName="b-place b-place--vip"
+                        SeatClassName="b-place__vipSeat"
+                        id={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
+                        key={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
+                    />
                 );
                 vip.push(vvv);
             }

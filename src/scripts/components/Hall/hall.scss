@@ -10,54 +10,6 @@
   }
 }
 
-.b-place {
-  width: 10%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-
-  &__seat {
-    width: 20px;
-    height: 15px;
-    border: solid 1px white;
-    margin-bottom: 4px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-
-    &:hover {
-      background-color: #0000CD;
-    }
-  }
-
-  &__vipSeat {
-    width: 45px;
-    height:15px;
-    border: solid 1px white;
-    margin-bottom: 4px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-
-    &:hover {
-      background-color: #0000CD;
-    }
-  }
-
-  &--sec {
-    width: 6.666%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  &--vip {
-    width: 20%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
 
 
 .b-seat-zone {
@@ -67,8 +19,6 @@
 
 .b-numeration {
   text-align: center;
-
-
 }
 
 .b-main-zone {
@@ -98,7 +48,6 @@
   width: 70%;
   display: flex;
   flex-wrap: wrap;
-
 }
 
 .b-second-zone {
@@ -111,6 +60,7 @@
   width: 100%;
   margin-top: 5px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 

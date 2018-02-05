@@ -2,7 +2,7 @@ import MoviesList from '../components/MoviesList';
 import ComingSoon from '../components/ComingSoon';
 import MovieDesc from '../components/MovieDesc';
 import Welcome from '../components/Welcome';
-import Hall from '../components/Hall';
+import Hall from '../components/Hall/index';
 
 const routes = [
     {
