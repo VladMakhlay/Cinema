@@ -45,8 +45,8 @@ class Hall extends Component {
                         thisClass = 'b-place__seat b-place__seat--taken';
                     }
                     fir = (<Place
-                        PlaceClassName="b-place"
-                        SeatClassName={thisClass}
+                        placeClassName="b-place"
+                        seatClassName={thisClass}
                         id={id}
                         key={id}
                     />);

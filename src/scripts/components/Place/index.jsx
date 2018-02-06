@@ -1,9 +1,9 @@
 import React from 'react';
 import './place.scss';
 
-const Place = ({ id, PlaceClassName, SeatClassName }) => (
-    <div className={PlaceClassName}>
-        <div className={SeatClassName} id={id} />
+const Place = ({ id, placeClassName, seatClassName }) => (
+    <div className={placeClassName}>
+        <div className={seatClassName} id={id} />
     </div>
 );
 
