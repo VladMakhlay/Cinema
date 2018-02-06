@@ -48,6 +48,8 @@ class Hall extends Component {
                         placeClassName="b-place"
                         seatClassName={thisClass}
                         id={id}
+                        row={i + 1}
+                        col={j + 1}
                         key={id}
                     />);
                 }
@@ -64,6 +66,8 @@ class Hall extends Component {
                         placeClassName="b-place b-place--sec"
                         seatClassName="b-place__seat"
                         id={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
+                        row={i + FIRST_ROW_NUM + 1}
+                        col={j + 1}
                         key={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
                     />
                 );
@@ -78,12 +82,15 @@ class Hall extends Component {
                         placeClassName="b-place b-place--vip"
                         seatClassName="b-place__vipSeat"
                         id={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
+                        row={i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}
+                        col={j + 1}
                         key={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
                     />
                 );
                 vip.push(vvv);
             }
         }
+        console.log(vip);
         return (
             <div className="b-hall">
                 <div className="b-hall-header">
