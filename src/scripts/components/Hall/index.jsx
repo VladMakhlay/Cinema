@@ -1,6 +1,10 @@
+/* eslint-disable no-param-reassign */
 
 import React, { Component } from 'react';
+// import moment from 'moment';
+import { connect } from 'react-redux';
 
+import loadTakenSeats from '../../actions/hall';
 import './hall.scss';
 import {
     FIRST_ROW_NUM,
@@ -13,6 +17,9 @@ import {
 import Place from '../Place';
 
 class Hall extends Component {
+    componentDidMount() {
+        this.props.loadTakenSeats();
+    }
     render() {
         const num = [];
         for (let i = 0; i < TOTAL_ROW_NUM; i += 1) {
@@ -24,20 +31,31 @@ class Hall extends Component {
             num.push(number);
         }
 
+        const { taken_seats } = this.props.hall;
+        let id;
+        let thisClass = 'b-place__seat';
+        let fir;
         const first = [];
         for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
-                const fir = (
-                    <Place
+                id = `${i + 1}_${j + 1}`;
+                for (let g = 0; g < taken_seats.length; g += 1) {
+                    if (taken_seats[g].seat === id) {
+                        thisClass = 'b-place__seat b-place__seat--taken';
+                    }
+                    fir = (<Place
                         PlaceClassName="b-place"
-                        SeatClassName="b-place__seat"
-                        id={`${i + 1}_${j + 1}`}
-                        key={`${i + 1}_${j + 1}`}
-                    />
-                );
+                        SeatClassName={thisClass}
+                        id={id}
+                        key={id}
+                    />);
+                }
                 first.push(fir);
+                console.log(first);
             }
         }
+
+
         const second = [];
         for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
@@ -96,4 +114,7 @@ class Hall extends Component {
     }
 }
 
-export default Hall;
+export default connect(
+    state => ({ hall: state.hall }),
+    { loadTakenSeats },
+)(Hall);
