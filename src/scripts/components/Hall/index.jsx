@@ -31,7 +31,7 @@ class Hall extends Component {
             num.push(number);
         }
 
-        const { taken_seats } = this.props.hall;
+        const takenSeats = this.props.hall.taken_seats;
         let id;
         let thisClass = 'b-place__seat';
         let fir;
@@ -39,8 +39,9 @@ class Hall extends Component {
         for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 id = `${i + 1}_${j + 1}`;
-                for (let g = 0; g < taken_seats.length; g += 1) {
-                    if (taken_seats[g].seat === id) {
+                console.log();
+                for (let g = 0; g < takenSeats.length; g += 1) {
+                    if (takenSeats[g].seat === id) {
                         thisClass = 'b-place__seat b-place__seat--taken';
                     }
                     fir = (<Place
@@ -51,7 +52,6 @@ class Hall extends Component {
                     />);
                 }
                 first.push(fir);
-                console.log(first);
             }
         }
 
