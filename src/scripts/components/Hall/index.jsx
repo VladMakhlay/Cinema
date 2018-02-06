@@ -61,8 +61,8 @@ class Hall extends Component {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
                 const sec = (
                     <Place
-                        PlaceClassName="b-place b-place--sec"
-                        SeatClassName="b-place__seat"
+                        placeClassName="b-place b-place--sec"
+                        seatClassName="b-place__seat"
                         id={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
                         key={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
                     />
@@ -75,8 +75,8 @@ class Hall extends Component {
             for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
                 const vvv = (
                     <Place
-                        PlaceClassName="b-place b-place--vip"
-                        SeatClassName="b-place__vipSeat"
+                        placeClassName="b-place b-place--vip"
+                        seatClassName="b-place__vipSeat"
                         id={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
                         key={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
                     />
