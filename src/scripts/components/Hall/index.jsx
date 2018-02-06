@@ -41,7 +41,7 @@ class Hall extends Component {
                 id = `${i + 1}_${j + 1}`;
                 console.log();
                 for (let g = 0; g < takenSeats.length; g += 1) {
-                    if (takenSeats[g].seat === id) {
+                    if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
                     }
                     fir = (<Place
@@ -49,7 +49,7 @@ class Hall extends Component {
                         seatClassName={thisClass}
                         id={id}
                         row={i + 1}
-                        col={j + 1}
+                        chair={j + 1}
                         key={id}
                     />);
                 }
@@ -67,7 +67,7 @@ class Hall extends Component {
                         seatClassName="b-place__seat"
                         id={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
                         row={i + FIRST_ROW_NUM + 1}
-                        col={j + 1}
+                        chair={j + 1}
                         key={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
                     />
                 );
@@ -83,7 +83,7 @@ class Hall extends Component {
                         seatClassName="b-place__vipSeat"
                         id={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
                         row={i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}
-                        col={j + 1}
+                        chair={j + 1}
                         key={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
                     />
                 );
