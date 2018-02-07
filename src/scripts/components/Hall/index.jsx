@@ -17,10 +17,32 @@ import {
 import Place from '../Place';
 
 class Hall extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isChosen: false,
+            id: null,
+        };
+        this.toggleSeatSelection = this.toggleSeatSelection.bind(this);
+    }
+
+    // componentWillMount() {
+    //     this.toggleSeatSelection();
+    // }
     componentDidMount() {
         this.props.loadTakenSeats();
     }
+
+    toggleSeatSelection(e) {
+        this.setState({
+            isChosen: !this.state.isChosen,
+            id: e.target.id,
+        });
+    }
     render() {
+        const { isChosen } = this.state;
+        // const chosenId = this.state.id;
+        const timeUnit = this.props.location.state.unit;
         const num = [];
         for (let i = 0; i < TOTAL_ROW_NUM; i += 1) {
             const number = (
@@ -32,14 +54,13 @@ class Hall extends Component {
         }
 
         const takenSeats = this.props.hall.taken_seats;
-        let id;
-        let thisClass = 'b-place__seat';
         let fir;
+        let id;
         const first = [];
         for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 id = `${i + 1}_${j + 1}`;
-                console.log();
+                let thisClass = `b-place__seat ${isChosen && (id === this.state.id) ? 'b-place__seat--yourChoice' : ''}`;
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
@@ -51,13 +72,14 @@ class Hall extends Component {
                         row={i + 1}
                         chair={j + 1}
                         key={id}
+                        onClick={this.toggleSeatSelection}
                     />);
                 }
                 first.push(fir);
             }
         }
 
-
+        console.log(this.state.id);
         const second = [];
         for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
@@ -90,11 +112,11 @@ class Hall extends Component {
                 vip.push(vvv);
             }
         }
-        console.log(vip);
         return (
             <div className="b-hall">
                 <div className="b-hall-header">
-                   Here you will be able to choose a seat(s) soon.
+                    <div className="b-hall-header__price">price</div>
+                    <div className="b-hall-header__timeUnit">{timeUnit}</div>
                 </div>
                 <div className="b-hall__screen">Screen</div>
                 <div className="b-seat-zone">

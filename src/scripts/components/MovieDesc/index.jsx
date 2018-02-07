@@ -44,7 +44,13 @@ class MovieDesc extends Component {
             if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
                 moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
                 return movie.show_time.map(unit => (
-                    <Link to="/hall" key={unit}>
+                    <Link
+                        to={{
+                            pathname: '/hall',
+                            state: { unit },
+                        }}
+                        key={unit}
+                    >
                         <div className="b-timeTable__timeUnit" key={unit}>
                             {unit}
                         </div>
