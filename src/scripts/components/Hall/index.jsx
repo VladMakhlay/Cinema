@@ -81,34 +81,54 @@ class Hall extends Component {
 
         console.log(this.state.id);
         const second = [];
+        let sec;
         for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
-                const sec = (
-                    <Place
-                        placeClassName="b-place b-place--sec"
-                        seatClassName="b-place__seat"
-                        id={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
-                        row={i + FIRST_ROW_NUM + 1}
-                        chair={j + 1}
-                        key={`${i + FIRST_ROW_NUM + 1}_${j + 1}`}
-                    />
-                );
+                id = `${i + FIRST_ROW_NUM + 1}_${j + 1}`;
+                let thisClass = `b-place__seat ${isChosen && (id === this.state.id) ? 'b-place__seat--yourChoice' : ''}`;
+                for (let g = 0; g < takenSeats.length; g += 1) {
+                    if (takenSeats[g].row === (i + FIRST_ROW_NUM + 1) &&
+                        takenSeats[g].chair === (j + 1)) {
+                        thisClass = 'b-place__seat b-place__seat--taken';
+                    }
+                    sec = (
+                        <Place
+                            placeClassName="b-place b-place--sec"
+                            seatClassName={thisClass}
+                            id={id}
+                            row={i + FIRST_ROW_NUM + 1}
+                            chair={j + 1}
+                            key={id}
+                            onClick={this.toggleSeatSelection}
+                        />
+                    );
+                }
                 second.push(sec);
             }
         }
         const vip = [];
+        let vvv;
         for (let i = 0; i < VIP_ROW_NUM; i += 1) {
             for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
-                const vvv = (
-                    <Place
-                        placeClassName="b-place b-place--vip"
-                        seatClassName="b-place__vipSeat"
-                        id={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
-                        row={i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}
-                        chair={j + 1}
-                        key={`${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`}
-                    />
-                );
+                id = `${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`;
+                let thisClass = `b-place__vipSeat ${isChosen && (id === this.state.id) ? 'b-place__vipSeat--yourChoice' : ''}`;
+                for (let g = 0; g < takenSeats.length; g += 1) {
+                    if (takenSeats[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
+                        takenSeats[g].chair === (j + 1)) {
+                        thisClass = 'b-place__vipSeat b-place__vipSeat--taken';
+                    }
+                    vvv = (
+                        <Place
+                            placeClassName="b-place b-place--vip"
+                            seatClassName={thisClass}
+                            id={id}
+                            row={i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}
+                            chair={j + 1}
+                            key={id}
+                            onClick={this.toggleSeatSelection}
+                        />
+                    );
+                }
                 vip.push(vvv);
             }
         }

@@ -50,5 +50,13 @@
     &:hover {
       background-color: #0000CD;
     }
+
+    &--taken {
+      background-color: white;
+    }
+
+    &--yourChoice {
+      background-color: red;
+    }
   }
 }
