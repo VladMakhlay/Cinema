@@ -21,43 +21,41 @@ class Main extends Component {
             <Router>
                 <section className="b-main">
                     <header className="b-header">
-                        <div className="container-fluid">
-                            <nav className="navbar navbar-inverse ">
-                                <div className="container-fluid">
-                                    <div className="navbar-header">
-                                        <NavLink
-                                            className="navbar-brand navbar-brand"
-                                            to="/"
-                                            activeClassName="active"
-                                        >Cinema
-                                        </NavLink>
-                                    </div>
-                                    <ul className="nav navbar-nav">
-                                        <li>
-                                            <NavLink
-                                                to="/today"
-                                                activeStyle={{
-                                                    background: 'black',
-                                                    color: 'aquamarine',
-                                                }}
-                                            >
-                                            Today Playing
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/soon"
-                                                activeStyle={{
-                                                    background: 'black',
-                                                    color: 'aquamarine',
-                                                }}
-                                            >Coming Soon
-                                            </NavLink>
-                                        </li>
-                                    </ul>
+                        <nav className="navbar navbar-inverse ">
+                            <div className="container-fluid">
+                                <div className="navbar-header">
+                                    <NavLink
+                                        className="navbar-brand navbar-brand"
+                                        to="/"
+                                        activeClassName="active"
+                                    >Cinema
+                                    </NavLink>
                                 </div>
-                            </nav>
-                        </div>
+                                <ul className="nav navbar-nav">
+                                    <li>
+                                        <NavLink
+                                            to="/today"
+                                            activeStyle={{
+                                                background: 'black',
+                                                color: 'aquamarine',
+                                            }}
+                                        >
+                                            Today Playing
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/soon"
+                                            activeStyle={{
+                                                background: 'black',
+                                                color: 'aquamarine',
+                                            }}
+                                        >Coming Soon
+                                        </NavLink>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
                     </header>
                     <div className="b-content">
                         {routes.map(route => <Route key={route.id} {...route} />)}
