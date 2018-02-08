@@ -113,7 +113,6 @@ class Hall extends Component {
                 first.push(fir);
             }
         }
-        console.log(myChoice);
 
         const second = [];
         for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
@@ -148,6 +147,7 @@ class Hall extends Component {
                 second.push(sec);
             }
         }
+
         const vip = [];
         for (let i = 0; i < VIP_ROW_NUM; i += 1) {
             for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
@@ -182,7 +182,7 @@ class Hall extends Component {
                 vip.push(vvv);
             }
         }
-        const buttonClasses = `btn ${this.state.sum ? 'btn-success canBuy' : 'couldBuy disabled'}`;
+        const buttonClasses = `btn btn-block ${this.state.sum ? 'btn-success' : 'disabled couldBuy'}`;
         return (
             <div className="b-hall">
                 <div className="b-hall-header">
@@ -194,7 +194,9 @@ class Hall extends Component {
                         </div>
                     </div>
                     <div className="b-hall-header__timeUnit">{timeUnit}</div>
-                    <div className={buttonClasses}>Buy</div>
+                    <div className="b-hall-header__button">
+                        <btn className={buttonClasses}>Buy</btn>
+                    </div>
                 </div>
                 <div className="b-hall__screen">Screen</div>
                 <div className="b-seat-zone">
@@ -214,6 +216,20 @@ class Hall extends Component {
                     </div>
                     <div className="b-numeration">
                         {num}
+                    </div>
+                </div>
+                <div className="b-specification">
+                    <div className="b-spec">
+                        <Place seatClassName="b-place__seat" />
+                        <span> -free </span>
+                    </div>
+                    <div className="b-spec">
+                        <Place seatClassName="b-place__seat b-place__seat--taken" />
+                        <span> -taken </span>
+                    </div>
+                    <div className="b-spec">
+                        <Place seatClassName="b-place__seat b-place__seat--yourChoice" />
+                        <span> -your choice </span>
                     </div>
                 </div>
             </div>
