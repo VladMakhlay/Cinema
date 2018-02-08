@@ -1,4 +1,5 @@
-/* eslint-disable no-param-reassign,no-bitwise */
+/* eslint-disable no-bitwise */
+
 
 import React, { Component } from 'react';
 // import moment from 'moment';
@@ -65,7 +66,6 @@ class Hall extends Component {
                 });
             }
         }
-        console.log(e.target.title);
     }
     render() {
         const timeUnit = this.props.location.state.unit;
@@ -80,16 +80,17 @@ class Hall extends Component {
         }
 
         const takenSeats = this.props.hall.taken_seats;
-        let fir;
         let id;
         const first = [];
         for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 id = `${i + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
+                let onClick = this.toggleSeatSelection;
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
+                        onClick = null;
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
@@ -97,16 +98,17 @@ class Hall extends Component {
                         thisClass = 'b-place__seat b-place__seat--yourChoice';
                     }
                 }
-                fir = (<Place
-                    placeClassName="b-place"
-                    seatClassName={thisClass}
-                    id={id}
-                    row={i + 1}
-                    chair={j + 1}
-                    key={id}
-                    title="first"
-                    onClick={this.toggleSeatSelection}
-                />);
+                const fir = (
+                    <Place
+                        placeClassName="b-place"
+                        seatClassName={thisClass}
+                        id={id}
+                        row={i + 1}
+                        chair={j + 1}
+                        key={id}
+                        title="first"
+                        onClick={onClick}
+                    />);
 
                 first.push(fir);
             }
@@ -114,15 +116,16 @@ class Hall extends Component {
         console.log(myChoice);
 
         const second = [];
-        let sec;
         for (let i = 0; i < SECOND_ROW_NUM; i += 1) {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
                 id = `${i + FIRST_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
+                let onClick = this.toggleSeatSelection;
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
+                        onClick = null;
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
@@ -130,7 +133,7 @@ class Hall extends Component {
                         thisClass = 'b-place__seat b-place__seat--yourChoice';
                     }
                 }
-                sec = (
+                const sec = (
                     <Place
                         placeClassName="b-place b-place--sec"
                         seatClassName={thisClass}
@@ -139,22 +142,23 @@ class Hall extends Component {
                         chair={j + 1}
                         key={id}
                         title="second"
-                        onClick={this.toggleSeatSelection}
+                        onClick={onClick}
                     />
                 );
                 second.push(sec);
             }
         }
         const vip = [];
-        let vvv;
         for (let i = 0; i < VIP_ROW_NUM; i += 1) {
             for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
                 id = `${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__vipSeat';
+                let onClick = this.toggleSeatSelection;
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__vipSeat b-place__vipSeat--taken';
+                        onClick = null;
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
@@ -163,7 +167,7 @@ class Hall extends Component {
                     }
                 }
 
-                vvv = (
+                const vvv = (
                     <Place
                         placeClassName="b-place b-place--vip"
                         seatClassName={thisClass}
@@ -172,7 +176,7 @@ class Hall extends Component {
                         chair={j + 1}
                         key={id}
                         title="vip"
-                        onClick={this.toggleSeatSelection}
+                        onClick={onClick}
                     />
                 );
                 vip.push(vvv);
