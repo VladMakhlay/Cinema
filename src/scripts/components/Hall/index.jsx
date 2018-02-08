@@ -182,11 +182,19 @@ class Hall extends Component {
                 vip.push(vvv);
             }
         }
+        const buttonClasses = `btn ${this.state.sum ? 'btn-success canBuy' : 'couldBuy disabled'}`;
         return (
             <div className="b-hall">
                 <div className="b-hall-header">
-                    <div className="b-hall-header__price">price: {this.state.sum} grn</div>
+                    <div className="b-hall-price">
+                        <div className="b-hall-price__price">
+                            price:
+                            <span className="b-hall-price__sum"> {this.state.sum}</span>
+                            grn
+                        </div>
+                    </div>
                     <div className="b-hall-header__timeUnit">{timeUnit}</div>
+                    <div className={buttonClasses}>Buy</div>
                 </div>
                 <div className="b-hall__screen">Screen</div>
                 <div className="b-seat-zone">
