@@ -32,6 +32,10 @@ export const ShowDays = [
 ];
 
 // HALL CONSTANTS
+export const FIRST_ZONE_PRICE = 50;
+export const SECOND_ZONE_PRICE = 70;
+export const VIP_ZONE_PRICE = 200;
+
 export const FIRST_ROW_NUM = 9;
 export const FIRST_SEAT_NUM = 10;
 export const SECOND_ROW_NUM = 10;
