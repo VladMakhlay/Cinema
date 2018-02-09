@@ -2,7 +2,7 @@
 
 
 import React, { Component } from 'react';
-// import moment from 'moment';
+import moment from 'moment';
 import { connect } from 'react-redux';
 
 import loadTakenSeats from '../../actions/hall';
@@ -68,6 +68,7 @@ class Hall extends Component {
         }
     }
     render() {
+        const today = moment();
         const timeUnit = this.props.location.state.unit;
         const num = [];
         for (let i = 0; i < TOTAL_ROW_NUM; i += 1) {
@@ -193,9 +194,12 @@ class Hall extends Component {
                             grn
                         </div>
                     </div>
-                    <div className="b-hall-header__timeUnit">{timeUnit}</div>
+                    <div className="b-hall-header__timeUnit">
+                        {timeUnit}
+                        <time>{today.format('DD-MMM-YYYY')}</time>
+                    </div>
                     <div className="b-hall-header__button">
-                        <btn className={buttonClasses}>Buy</btn>
+                        <button className={buttonClasses}>Buy</button>
                     </div>
                 </div>
                 <div className="b-hall__screen">Screen</div>
