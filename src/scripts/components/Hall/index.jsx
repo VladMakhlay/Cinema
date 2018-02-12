@@ -26,22 +26,40 @@ class Hall extends Component {
         super(props);
         this.state = {
             sum: null,
+            seatsNum: null,
         };
-        this.toggleSeatSelection = this.toggleSeatSelection.bind(this);
     }
     componentDidMount() {
         this.props.loadTakenSeats();
     }
 
-    toggleSeatSelection(e) {
-        const position = myChoice.indexOf(e.target);
+    toggleSeatSelection(e, i, j) {
+        let forRow;
+        switch (e) {
+        case 'first': forRow = 0;
+            break;
+        case 'second': forRow = FIRST_ROW_NUM;
+            break;
+        case 'vip': forRow = FIRST_ROW_NUM + SECOND_ROW_NUM;
+            break;
+        default: forRow = 0;
+            break;
+        }
+        const choice = {
+            row: i + forRow + 1,
+            chair: j + 1,
+            id: `${i + forRow + 1}_${j + 1}`,
+            title: e,
+        };
+        const position = myChoice.indexOf(choice.id);
         if (~position) {
             myChoice.splice(position, 1);
-            if (e.target.title === 'first') {
+            this.setState({ seatsNum: this.state.seatsNum - 1 });
+            if (choice.title === 'first') {
                 this.setState({
                     sum: this.state.sum - FIRST_ZONE_PRICE,
                 });
-            } else if (e.target.title === 'second') {
+            } else if (choice.title === 'second') {
                 this.setState({
                     sum: this.state.sum - SECOND_ZONE_PRICE,
                 });
@@ -51,12 +69,13 @@ class Hall extends Component {
                 });
             }
         } else {
-            myChoice.push(e.target);
-            if (e.target.title === 'first') {
+            myChoice.push(choice.id);
+            this.setState({ seatsNum: this.state.seatsNum + 1 });
+            if (choice.title === 'first') {
                 this.setState({
                     sum: this.state.sum + FIRST_ZONE_PRICE,
                 });
-            } else if (e.target.title === 'second') {
+            } else if (choice.title === 'second') {
                 this.setState({
                     sum: this.state.sum + SECOND_ZONE_PRICE,
                 });
@@ -87,7 +106,7 @@ class Hall extends Component {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 id = `${i + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
-                let onClick = this.toggleSeatSelection;
+                let onClick = this.toggleSeatSelection.bind(this, 'first', i, j);
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
@@ -95,7 +114,7 @@ class Hall extends Component {
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
-                    if (myChoice[c].id === id) {
+                    if (myChoice[c] === id) {
                         thisClass = 'b-place__seat b-place__seat--yourChoice';
                     }
                 }
@@ -120,7 +139,7 @@ class Hall extends Component {
             for (let j = 0; j < SECOND_SEAT_NUM; j += 1) {
                 id = `${i + FIRST_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
-                let onClick = this.toggleSeatSelection;
+                let onClick = this.toggleSeatSelection.bind(this, 'second', i, j);
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
@@ -129,7 +148,7 @@ class Hall extends Component {
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
-                    if (myChoice[c].id === id) {
+                    if (myChoice[c] === id) {
                         thisClass = 'b-place__seat b-place__seat--yourChoice';
                     }
                 }
@@ -154,7 +173,7 @@ class Hall extends Component {
             for (let j = 0; j < VIP_SEAT_NUM; j += 1) {
                 id = `${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__vipSeat';
-                let onClick = this.toggleSeatSelection;
+                let onClick = this.toggleSeatSelection.bind(this, 'vip', i, j);
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
@@ -163,7 +182,7 @@ class Hall extends Component {
                     }
                 }
                 for (let c = 0; c < myChoice.length; c += 1) {
-                    if (myChoice[c].id === id) {
+                    if (myChoice[c] === id) {
                         thisClass = 'b-place__vipSeat b-place__vipSeat--yourChoice';
                     }
                 }
@@ -189,17 +208,20 @@ class Hall extends Component {
                 <div className="b-hall-header">
                     <div className="b-hall-price">
                         <div className="b-hall-price__price">
-                            price:
-                            <span className="b-hall-price__sum"> {this.state.sum}</span>
-                            grn
+                            price:<span className="b-hall-price__sum"> {this.state.sum}</span>g
+                        </div>
+                        <div className="b-hall-price__seats">
+                            seats: <span className="b-hall-price__num"> {this.state.seatsNum}</span>
                         </div>
                     </div>
                     <div className="b-hall-header__timeUnit">
                         {timeUnit}
                         <time>{today.format('DD-MMM-YYYY')}</time>
                     </div>
-                    <div className="b-hall-header__button">
-                        <button className={buttonClasses}>Buy</button>
+                    <div className="b-hall-button">
+                        <div className="b-hall-button__width80">
+                            <button className={buttonClasses}>Buy</button>
+                        </div>
                     </div>
                 </div>
                 <div className="b-hall__screen">Screen</div>
