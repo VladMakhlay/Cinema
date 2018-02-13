@@ -1,11 +1,74 @@
 .b-hall {
 
+  &__screen {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    color: lightgrey;
+    margin-top: 20px;
+  }
+}
+
+
+
+.b-seat-zone {
+  display: flex;
+  justify-content: center;
+}
+
+.b-numeration {
+  text-align: center;
+}
+
+.b-main-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+
+  @media screen and (max-width: 420px) {
+    width: 77%;
+  }
+  @media screen and (min-width: 421px) and (max-width: 520px) {
+    width: 65%;
+  }
+  @media screen and (min-width: 521px) and (max-width: 700px) {
+    width: 55%;
+  }
+  @media screen and (min-width: 701px) and (max-width: 991px) {
+    width: 48%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 40%;
+  }
+}
+
+.b-first-zone {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.b-second-zone {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.b-vip-zone {
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .b-hall-header {
   width: 100%;
   height: 70px;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
   color: red;
-  background-color: lightgray;
  }
+

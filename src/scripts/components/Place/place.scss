@@ -1,0 +1,54 @@
+.b-place {
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  &--sec {
+    width: 6.666%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &--vip {
+    width: 24%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__seat {
+    width: 20px;
+    height: 15px;
+    border: solid 1px white;
+    margin-bottom: 4px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    &:hover {
+      background-color: #0000CD;
+    }
+
+    &--taken {
+      background-color: white;
+    }
+  }
+
+  &__vipSeat {
+    width: 45px;
+    height:15px;
+    border: solid 1px white;
+    margin-bottom: 4px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    &:hover {
+      background-color: #0000CD;
+    }
+
+    &--taken {
+      background-color: white;
+    }
+  }
+}

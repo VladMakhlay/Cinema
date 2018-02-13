@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import moment from 'moment';
 import './movieDesc.scss';
@@ -43,9 +44,17 @@ class MovieDesc extends Component {
             if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
                 moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
                 return movie.show_time.map(unit => (
-                    <div className="b-timeTable__timeUnit" key={unit}>
-                        {unit}
-                    </div>
+                    <Link
+                        to={{
+                            pathname: '/hall',
+                            state: { unit },
+                        }}
+                        key={unit}
+                    >
+                        <div className="b-timeTable__timeUnit" key={unit}>
+                            {unit}
+                        </div>
+                    </Link>
                 ));
             }
             return (

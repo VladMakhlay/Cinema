@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const showDays = [
+export const ShowDays = [
     {
         id: 1,
         day: moment(),
@@ -31,4 +31,12 @@ const showDays = [
     },
 ];
 
-export default showDays;
+// HALL CONSTANTS
+export const FIRST_ROW_NUM = 9;
+export const FIRST_SEAT_NUM = 10;
+export const SECOND_ROW_NUM = 10;
+export const SECOND_SEAT_NUM = 15;
+export const VIP_ROW_NUM = 1;
+export const VIP_SEAT_NUM = 4;
+export const TOTAL_ROW_NUM = FIRST_ROW_NUM + SECOND_ROW_NUM + VIP_ROW_NUM;
+
