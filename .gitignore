@@ -1,4 +1,4 @@
 /node_modules
 /public
-/src/scripts/config
+/src/scripts/config/firebase
 .idea
