@@ -1,4 +1,4 @@
-/config/firebase/index.js
+/config/*
 /node_modules
 /public
 .idea
