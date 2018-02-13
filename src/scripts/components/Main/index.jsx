@@ -10,7 +10,7 @@ import firebase from 'firebase';
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
 import './main.scss';
-import DB_CONFIG from '../../config/firebase/index';
+import DB_CONFIG from '../../../../config/firebase/index';
 
 class Main extends Component {
     constructor(props) {
