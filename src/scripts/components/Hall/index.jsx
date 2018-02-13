@@ -89,6 +89,7 @@ class Hall extends Component {
     render() {
         const today = moment();
         const timeUnit = this.props.location.state.unit;
+
         const num = [];
         for (let i = 0; i < TOTAL_ROW_NUM; i += 1) {
             const number = (
@@ -107,6 +108,7 @@ class Hall extends Component {
                 id = `${i + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
                 let onClick = this.toggleSeatSelection.bind(this, 'first', i, j);
+
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
@@ -128,8 +130,8 @@ class Hall extends Component {
                         key={id}
                         title="first"
                         onClick={onClick}
-                    />);
-
+                    />
+                );
                 first.push(fir);
             }
         }
@@ -140,6 +142,7 @@ class Hall extends Component {
                 id = `${i + FIRST_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
                 let onClick = this.toggleSeatSelection.bind(this, 'second', i, j);
+
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
@@ -174,6 +177,7 @@ class Hall extends Component {
                 id = `${i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1}_${j + 1}`;
                 let thisClass = 'b-place__vipSeat';
                 let onClick = this.toggleSeatSelection.bind(this, 'vip', i, j);
+
                 for (let g = 0; g < takenSeats.length; g += 1) {
                     if (takenSeats[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
                         takenSeats[g].chair === (j + 1)) {
