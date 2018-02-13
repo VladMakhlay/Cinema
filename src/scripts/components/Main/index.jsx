@@ -5,13 +5,19 @@ import {
     Route,
     NavLink,
 } from 'react-router-dom';
+import firebase from 'firebase';
 
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
 import './main.scss';
-
+import DB_CONFIG from '../../config/firebase/index';
 
 class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.app = firebase.initializeApp(DB_CONFIG);
+        this.db = this.app.database().ref().child('takenSeats');
+    }
     componentDidMount() {
         this.props.loadMovies();
     }
