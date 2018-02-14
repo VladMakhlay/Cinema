@@ -8,17 +8,26 @@ import './moviesList.scss';
 
 class MoviesList extends Component {
     render() {
-        let { movies } = this.props.moviesList;
+        const { movies } = this.props.moviesList;
+        const todayMovies = [];
         const today = moment().format();
-        movies = movies.filter((movie) => {
-            let res;
-            if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
-                moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
-                res = movie;
+        Object.keys(movies).filter((key) => {
+            if (moment(movies[key].show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
+                moment(movies[key].show_days[movies[key].show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
+                todayMovies.push(movies[key]);
             }
-            return res;
+            return todayMovies;
         });
-        const poster = movies.map(movie => (
+        // movies = movies.filter((movie) => {
+        //     let res;
+        //     if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
+        //         moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY')
+        // .isSameOrAfter(today)) {
+        //         res = movie;
+        //     }
+        //     return res;
+        // });
+        const poster = todayMovies.map(movie => (
             <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
                 <div className="b-movie" key={movie.id} >
                     <Link to={{
