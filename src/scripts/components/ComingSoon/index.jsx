@@ -8,16 +8,17 @@ import './comingSoon.scss';
 
 class ComingSoon extends Component {
     render() {
-        let { movies } = this.props.moviesList;
+        const { movies } = this.props.moviesList;
+        const comingSoonMovies = [];
         const today = moment().format();
-        movies = movies.filter((movie) => {
-            let res;
+        Object.keys(movies).filter((key) => {
+            const movie = movies[key];
             if (moment(movie.show_days[0], 'DD-MM-YYYY').isAfter(today)) {
-                res = movie;
+                comingSoonMovies.push(movie);
             }
-            return res;
+            return comingSoonMovies;
         });
-        const poster = movies.map(movie => (
+        const poster = comingSoonMovies.map(movie => (
             <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12" key={movie.id}>
                 <div className="b-movie" key={movie.id} >
                     <Link to={{
