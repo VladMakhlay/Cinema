@@ -11,7 +11,14 @@ class MovieDesc extends Component {
     render() {
         let { movies } = this.props.moviesList;
         const { id } = this.props.match.params;
-        let chosenMovies = movies.filter(movie => movie.id === Number(id));
+        const chosenMovies = [];
+        Object.keys(movies).filter((key) => {
+            const movie = movies[key];
+            if (movie.id === Number(id)) {
+                chosenMovies.push(movie);
+            }
+            return chosenMovies;
+        });
         const selectedMovie = chosenMovies.map(movie => (
             <section className="b-info" key={movie.id}>
                 <div className="container-fluid">
