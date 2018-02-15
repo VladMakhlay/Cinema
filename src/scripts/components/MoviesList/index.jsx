@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './moviesList.scss';
+// import APP from '../../../../config/firebase';
 
 class MoviesList extends Component {
     render() {
@@ -18,6 +19,7 @@ class MoviesList extends Component {
             }
             return todayMovies;
         });
+
         // movies = movies.filter((movie) => {
         //     let res;
         //     if (moment(movie.show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
