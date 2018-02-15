@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './welcome.scss';
-import MoviesList from '../MoviesList/index';
+import MoviesList from '../MoviesList';
 
 class Welcome extends Component {
     render() {
