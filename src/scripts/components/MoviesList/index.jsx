@@ -13,9 +13,10 @@ class MoviesList extends Component {
         const todayMovies = [];
         const today = moment().format();
         Object.keys(movies).filter((key) => {
-            if (moment(movies[key].show_days[0], 'DD-MM-YYYY').isSameOrBefore(today) &&
-                moment(movies[key].show_days[movies[key].show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
-                todayMovies.push(movies[key]);
+            const movie = movies[key];
+            if (moment(movie.show_days[Object.keys(movie.show_days)[0]], 'DD-MM-YYYY').isSameOrBefore(today) &&
+                moment(movie.show_days[movie.show_days.length - 1], 'DD-MM-YYYY').isSameOrAfter(today)) {
+                todayMovies.push(movie);
             }
             return todayMovies;
         });
