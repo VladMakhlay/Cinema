@@ -19,8 +19,9 @@ import {
     VIP_ROW_NUM,
     TOTAL_ROW_NUM } from '../../constants';
 import Place from '../Place';
+import { takenSeatsRef } from '../../../../config/firebase/index';
 
-const myChoice = [];
+let myChoice = [];
 class Hall extends Component {
     constructor(props) {
         super(props);
@@ -28,6 +29,8 @@ class Hall extends Component {
             sum: null,
             seatsNum: null,
         };
+        this.occupied = [];
+        this.weBuy = this.weBuy.bind(this);
     }
     componentDidMount() {
         this.props.loadTakenSeats();
@@ -49,17 +52,20 @@ class Hall extends Component {
             row: i + forRow + 1,
             chair: j + 1,
             id: `${i + forRow + 1}_${j + 1}`,
-            title: e,
+            zone: e,
         };
         const position = myChoice.indexOf(choice.id);
         if (~position) {
             myChoice.splice(position, 1);
-            this.setState({ seatsNum: this.state.seatsNum - 1 });
-            if (choice.title === 'first') {
+            this.occupied.splice(position, 1);
+            this.setState({
+                seatsNum: this.state.seatsNum - 1,
+            });
+            if (choice.zone === 'first') {
                 this.setState({
                     sum: this.state.sum - FIRST_ZONE_PRICE,
                 });
-            } else if (choice.title === 'second') {
+            } else if (choice.zone === 'second') {
                 this.setState({
                     sum: this.state.sum - SECOND_ZONE_PRICE,
                 });
@@ -70,12 +76,15 @@ class Hall extends Component {
             }
         } else {
             myChoice.push(choice.id);
-            this.setState({ seatsNum: this.state.seatsNum + 1 });
-            if (choice.title === 'first') {
+            this.occupied.push(choice);
+            this.setState({
+                seatsNum: this.state.seatsNum + 1,
+            });
+            if (choice.zone === 'first') {
                 this.setState({
                     sum: this.state.sum + FIRST_ZONE_PRICE,
                 });
-            } else if (choice.title === 'second') {
+            } else if (choice.zone === 'second') {
                 this.setState({
                     sum: this.state.sum + SECOND_ZONE_PRICE,
                 });
@@ -85,6 +94,18 @@ class Hall extends Component {
                 });
             }
         }
+    }
+
+    weBuy() {
+        for (let i = 0; i < this.occupied.length; i += 1) {
+            takenSeatsRef.push(this.occupied[i]);
+        }
+        this.occupied = [];
+        myChoice = [];
+        this.setState({
+            sum: null,
+            seatsNum: null,
+        });
     }
     render() {
         const today = moment();
@@ -101,20 +122,26 @@ class Hall extends Component {
         }
 
         const takenSeats = this.props.hall.taken_seats;
+        console.log(this.occupied);
+        const taken = [];
+        Object.keys(takenSeats).map(key => taken.push(takenSeats[key]));
         let id;
         const first = [];
+
         for (let i = 0; i < FIRST_ROW_NUM; i += 1) {
             for (let j = 0; j < FIRST_SEAT_NUM; j += 1) {
                 id = `${i + 1}_${j + 1}`;
                 let thisClass = 'b-place__seat';
                 let onClick = this.toggleSeatSelection.bind(this, 'first', i, j);
 
-                for (let g = 0; g < takenSeats.length; g += 1) {
-                    if (takenSeats[g].row === (i + 1) && takenSeats[g].chair === (j + 1)) {
+                for (let g = 0; g < taken.length; g += 1) {
+                    if (taken[g].row === (i + 1) &&
+                        taken[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
                         onClick = null;
                     }
                 }
+
                 for (let c = 0; c < myChoice.length; c += 1) {
                     if (myChoice[c] === id) {
                         thisClass = 'b-place__seat b-place__seat--yourChoice';
@@ -143,9 +170,9 @@ class Hall extends Component {
                 let thisClass = 'b-place__seat';
                 let onClick = this.toggleSeatSelection.bind(this, 'second', i, j);
 
-                for (let g = 0; g < takenSeats.length; g += 1) {
-                    if (takenSeats[g].row === (i + FIRST_ROW_NUM + 1) &&
-                        takenSeats[g].chair === (j + 1)) {
+                for (let g = 0; g < taken.length; g += 1) {
+                    if (taken[g].row === (i + FIRST_ROW_NUM + 1) &&
+                        taken[g].chair === (j + 1)) {
                         thisClass = 'b-place__seat b-place__seat--taken';
                         onClick = null;
                     }
@@ -178,9 +205,9 @@ class Hall extends Component {
                 let thisClass = 'b-place__vipSeat';
                 let onClick = this.toggleSeatSelection.bind(this, 'vip', i, j);
 
-                for (let g = 0; g < takenSeats.length; g += 1) {
-                    if (takenSeats[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
-                        takenSeats[g].chair === (j + 1)) {
+                for (let g = 0; g < taken.length; g += 1) {
+                    if (taken[g].row === (i + FIRST_ROW_NUM + SECOND_ROW_NUM + 1) &&
+                        taken[g].chair === (j + 1)) {
                         thisClass = 'b-place__vipSeat b-place__vipSeat--taken';
                         onClick = null;
                     }
@@ -224,7 +251,12 @@ class Hall extends Component {
                     </div>
                     <div className="b-hall-button">
                         <div className="b-hall-button__width80">
-                            <button className={buttonClasses}>Buy</button>
+                            <button
+                                className={buttonClasses}
+                                onClick={this.weBuy}
+                            >
+                                Buy
+                            </button>
                         </div>
                     </div>
                 </div>

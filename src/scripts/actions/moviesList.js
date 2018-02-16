@@ -2,12 +2,7 @@
 // import { MOVIE_FETCH, MOVIE_FETCH_ERROR } from '../reducers/moviesList';
 
 import { MOVIE_FETCH } from '../reducers/moviesList';
-import APP from '../../../config/firebase';
-
-
-const db = APP.database().ref();
-const moviesRef = db.child('movies');
-
+import { moviesRef } from '../../../config/firebase';
 
 // const loadMovies = () => (dispatch) => {
 //     axios.get('https://demo4787444.mockable.io/posters')

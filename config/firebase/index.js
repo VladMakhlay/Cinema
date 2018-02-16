@@ -10,5 +10,8 @@ const DB_CONFIG = {
 };
 
 const APP = firebase.initializeApp(DB_CONFIG);
+const db = APP.database().ref();
 
-export default APP;
+export const moviesRef = db.child('movies');
+export const takenSeatsRef = db.child('takenSeats');
+

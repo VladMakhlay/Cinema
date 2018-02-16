@@ -26,10 +26,10 @@ class ComingSoon extends Component {
                     }}
                     >
                         <div className="b-poster">
-                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                            <img className="b-poster__img" src={movie.mg} alt={movie.zone} />
                         </div>
                         <div className="b-movie__title">
-                            {movie.title}
+                            {movie.zone}
                         </div>
                     </Link>
                 </div>

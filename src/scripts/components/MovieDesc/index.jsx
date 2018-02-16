@@ -25,12 +25,12 @@ class MovieDesc extends Component {
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div className="b-poster--movieDesc">
-                                <img className="b-poster__img" src={movie.mg} alt={movie.title} />
+                                <img className="b-poster__img" src={movie.mg} alt={movie.zone} />
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                             <div className="b-mainInfo">
-                                <h1 className="b-mainInfo__head">{movie.title}</h1>
+                                <h1 className="b-mainInfo__head">{movie.zone}</h1>
                                 <p><b>director: </b>{movie.director}</p>
                                 <p><b>genre: </b>{movie.genre}</p>
                                 <p><b>cast: </b>{movie.cast}</p>

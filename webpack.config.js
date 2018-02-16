@@ -88,7 +88,7 @@ const common = {
         new ExtractTextPlugin('[name].[hash:5].css'),
         new CleanWebpackPlugin(['./public']),
         new HtmlWebpackPlugin({
-            title: 'Cinema',
+            zone: 'Cinema',
             template: './src/index.html',
         }),
 
