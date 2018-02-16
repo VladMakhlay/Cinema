@@ -38,10 +38,10 @@ class MoviesList extends Component {
                     }}
                     >
                         <div className="b-poster">
-                            <img className="b-poster__img" src={movie.mg} alt={movie.zone} />
+                            <img className="b-poster__img" src={movie.mg} alt={movie.title} />
                         </div>
                         <div className="b-movie__title">
-                            {movie.zone}
+                            {movie.title}
                         </div>
                     </Link>
                 </div>

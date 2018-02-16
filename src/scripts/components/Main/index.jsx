@@ -53,6 +53,10 @@ class Main extends Component {
                                         </NavLink>
                                     </li>
                                 </ul>
+                                <ul className="nav navbar-nav navbar-right">
+                                    <li><a href="#"><span className="glyphicon glyphicon-user" /> Sign Up</a></li>
+                                    <li><a href="#"><span className="glyphicon glyphicon-log-in" /> Login</a></li>
+                                </ul>
                             </div>
                         </nav>
                     </header>
