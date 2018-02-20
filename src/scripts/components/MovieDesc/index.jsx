@@ -6,9 +6,30 @@ import { Link } from 'react-router-dom';
 
 import moment from 'moment';
 import './movieDesc.scss';
+import { auth } from '../../../../config/firebase/index';
 
 class MovieDesc extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAuthenticated: false,
+        };
+    }
+    componentWillMount() {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    isAuthenticated: true,
+                });
+            } else {
+                this.setState({
+                    isAuthenticated: false,
+                });
+            }
+        });
+    }
     render() {
+        // console.log(this.state.isAuthenticated);
         let { movies } = this.props.moviesList;
         const { id } = this.props.match.params;
         const chosenMovies = [];
@@ -45,6 +66,7 @@ class MovieDesc extends Component {
                 </div>
             </section>
         ));
+        // const pathname = `${this.state.isAuthenticated ? '/hall' : '/login'}`;
         const timing = chosenMovies.map((movie) => {
             const today = moment().format();
             const firstDay = moment(movie.show_days[0], 'DD-MM-YYYY');
@@ -53,7 +75,7 @@ class MovieDesc extends Component {
                 return movie.show_time.map(unit => (
                     <Link
                         to={{
-                            pathname: '/hall',
+                            pathname: this.state.isAuthenticated ? '/hall' : '/login',
                             state: { unit },
                         }}
                         key={unit}

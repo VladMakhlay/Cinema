@@ -32,20 +32,28 @@ class Hall extends Component {
         this.occupied = [];
         this.weBuy = this.weBuy.bind(this);
     }
+    componentWillMount() {
+
+    }
     componentDidMount() {
         this.props.loadTakenSeats();
     }
 
+
     toggleSeatSelection(e, i, j) {
         let forRow;
         switch (e) {
-        case 'first': forRow = 0;
+        case 'first':
+            forRow = 0;
             break;
-        case 'second': forRow = FIRST_ROW_NUM;
+        case 'second':
+            forRow = FIRST_ROW_NUM;
             break;
-        case 'vip': forRow = FIRST_ROW_NUM + SECOND_ROW_NUM;
+        case 'vip':
+            forRow = FIRST_ROW_NUM + SECOND_ROW_NUM;
             break;
-        default: forRow = 0;
+        default:
+            forRow = 0;
             break;
         }
         const choice = {
@@ -108,6 +116,13 @@ class Hall extends Component {
         });
     }
     render() {
+        // const email = 'vladm369@g.mail.com';
+        // const pass = 'aaaaaaa';
+        // auth.signInWithEmailAndPassword(email, pass).catch((error) => {
+        //     console.log(error.code);
+        //     console.log(error.message);
+        // });
+
         const today = moment();
         const timeUnit = this.props.location.state.unit;
 
@@ -122,7 +137,7 @@ class Hall extends Component {
         }
 
         const takenSeats = this.props.hall.taken_seats;
-        console.log(this.occupied);
+        // console.log(this.occupied);
         const taken = [];
         Object.keys(takenSeats).map(key => taken.push(takenSeats[key]));
         let id;

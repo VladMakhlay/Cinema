@@ -9,11 +9,37 @@ import {
 import loadMovies from '../../actions/moviesList';
 import routes from '../../routes';
 import './main.scss';
+import { auth } from '../../../../config/firebase/index';
 
 class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAuthenticated: false,
+        };
+        this.signOut = this.signOut.bind(this);
+    }
+
     componentDidMount() {
         this.props.loadMovies();
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.setState({
+                    isAuthenticated: true,
+                });
+            }
+        });
     }
+
+
+    signOut() {
+        auth.signOut().then(() => {
+            this.setState({
+                isAuthenticated: false,
+            });
+        });
+    }
+
 
     render() {
         return (
@@ -54,8 +80,36 @@ class Main extends Component {
                                     </li>
                                 </ul>
                                 <ul className="nav navbar-nav navbar-right">
-                                    <li><a href="#"><span className="glyphicon glyphicon-user" /> Sign Up</a></li>
-                                    <li><a href="#"><span className="glyphicon glyphicon-log-in" /> Login</a></li>
+                                    <li>
+                                        <NavLink
+                                            to="/signup"
+                                            activeStyle={{
+                                                background: 'black',
+                                                color: 'aquamarine',
+                                            }}
+                                        ><span className="glyphicon glyphicon-user" />
+                                            Sign Up
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        { this.state.isAuthenticated ?
+                                            <NavLink to="/" onClick={this.signOut}>
+                                                <span className="glyphicon glyphicon-log-out" />
+                                                Logout
+                                            </NavLink>
+                                            :
+                                            <NavLink
+                                                to="/login"
+                                                activeStyle={{
+                                                    background: 'black',
+                                                    color: 'aquamarine',
+                                                }}
+                                            ><span className="glyphicon glyphicon-log-in" />
+                                                Login
+                                            </NavLink>
+                                        }
+
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
