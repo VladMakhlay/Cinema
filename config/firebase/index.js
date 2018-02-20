@@ -9,9 +9,10 @@ const DB_CONFIG = {
     messagingSenderId: '525214591150',
 };
 
-const APP = firebase.initializeApp(DB_CONFIG);
-const db = APP.database().ref();
+const app = firebase.initializeApp(DB_CONFIG);
+const db = app.database().ref();
 
+export const auth = app.auth();
 export const moviesRef = db.child('movies');
 export const takenSeatsRef = db.child('takenSeats');
 
