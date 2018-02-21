@@ -33,7 +33,6 @@ class Login extends Component {
                 this.setState({
                     redirect: true,
                 });
-                console.log(user.email);
             }
         });
     }
