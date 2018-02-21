@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import { auth } from '../../../../config/firebase/index';
@@ -11,6 +10,7 @@ class Signup extends Component {
         this.createAnAccount = this.createAnAccount.bind(this);
         this.state = {
             redirect: false,
+            error: '',
         };
     }
     createAnAccount(event) {
@@ -19,7 +19,7 @@ class Signup extends Component {
         const pass = this.passInput.value;
         auth.createUserWithEmailAndPassword(email, pass)
             .catch((error) => {
-                alert(error.message);
+                this.setState({ error: error.message });
                 this.signupForm.reset();
             });
         auth.onAuthStateChanged((user) => {
@@ -39,7 +39,9 @@ class Signup extends Component {
             <div className="b-modal">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal">&times;</button>
+                        <Link to="/">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                        </Link>
                         <h4><span className="glyphicon glyphicon-user" /> Sign up</h4>
                     </div>
                     <div className="modal-body">
@@ -71,15 +73,26 @@ class Signup extends Component {
                                     />
                                 </label>
                             </div>
-
-                            <button type="submit" className="btn btn-default btn-success btn-block">
+                            { this.state.error &&
+                            <div className="alert alert-danger">
+                                {this.state.error}
+                            </div>
+                            }
+                            <button
+                                type="submit"
+                                className="btn btn-default btn-success btn-block"
+                            >
                             Login
                             </button>
                         </form>
                     </div>
                     <div className="modal-footer">
                         <Link to="/">
-                            <button type="submit" className="btn btn-default btn-default btn-block" data-dismiss="modal">
+                            <button
+                                type="submit"
+                                className="btn btn-default btn-default btn-block"
+                                data-dismiss="modal"
+                            >
                                 <span className="glyphicon glyphicon-remove" />
                                 Cancel
                             </button>

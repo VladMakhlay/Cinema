@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
@@ -11,8 +10,10 @@ class Login extends Component {
         this.signInEmailPass = this.signInEmailPass.bind(this);
         this.state = {
             redirect: false,
+            error: '',
         };
     }
+
 
     signInEmailPass(event) {
         event.preventDefault();
@@ -24,7 +25,7 @@ class Login extends Component {
         const pass = this.passInput.value;
         auth.signInWithEmailAndPassword(email, pass)
             .catch((error) => {
-                alert(error.message);
+                this.setState({ error: error.message });
                 this.loginForm.reset();
             });
         auth.onAuthStateChanged((user) => {
@@ -45,7 +46,9 @@ class Login extends Component {
             <div className="b-modal">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal">&times;</button>
+                        <Link to="/">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                        </Link>
                         <h4><span className="glyphicon glyphicon-lock" /> Login</h4>
                     </div>
                     <div className="modal-body">
@@ -77,19 +80,24 @@ class Login extends Component {
                                     />
                                 </label>
                             </div>
-
+                            { this.state.error &&
+                                <div className="alert alert-danger">
+                                    {this.state.error}
+                                </div>
+                            }
                             <button type="submit" className="btn btn-default btn-success btn-block">
                             Login
                             </button>
                         </form>
                     </div>
                     <div className="modal-footer">
-                        <button type="submit" className="btn btn-default btn-default pull-left" data-dismiss="modal">
-                            <span className="glyphicon glyphicon-remove" />
+                        <Link to="/">
+                            <button type="submit" className="btn btn-default btn-default pull-left" data-dismiss="modal">
+                                <span className="glyphicon glyphicon-remove" />
                             Cancel
-                        </button>
+                            </button>
+                        </Link>
                         <p>Not a member? <Link to="/signup">Sign Up</Link></p>
-                        <p>Forgot <a href="#">Password?</a></p>
                     </div>
                 </div>
             </div>

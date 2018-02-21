@@ -29,7 +29,6 @@ class MovieDesc extends Component {
         });
     }
     render() {
-        // console.log(this.state.isAuthenticated);
         let { movies } = this.props.moviesList;
         const { id } = this.props.match.params;
         const chosenMovies = [];
@@ -66,7 +65,6 @@ class MovieDesc extends Component {
                 </div>
             </section>
         ));
-        // const pathname = `${this.state.isAuthenticated ? '/hall' : '/login'}`;
         const timing = chosenMovies.map((movie) => {
             const today = moment().format();
             const firstDay = moment(movie.show_days[0], 'DD-MM-YYYY');
